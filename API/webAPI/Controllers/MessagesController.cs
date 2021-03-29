@@ -12,7 +12,7 @@ namespace webAPI.Controllers
     public class MessagesController : ApiController
     {
         public static ArvinoDbContext db = new ArvinoDbContext();
-        // GET api/<controller>
+        // GET api/Messages
         public IHttpActionResult Get(int id)
         {
             try
