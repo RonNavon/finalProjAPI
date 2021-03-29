@@ -11,6 +11,7 @@ namespace webAPI.Models
         public static List<RV_Group> GetAllGroups(ArvinoDbContext db)
         {
             return db.RV_Group.ToList();
+            //Test
         }
     }
 }
