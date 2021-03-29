@@ -1,0 +1,42 @@
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\DATA.dll.config
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\DATA.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\DATA.pdb
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\EntityFramework.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\Newtonsoft.Json.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\System.Web.Cors.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\System.Web.Http.Cors.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\System.Web.Http.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\EntityFramework.xml
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\Newtonsoft.Json.xml
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\System.Web.Http.xml
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\bin\Release\System.Web.Http.Cors.xml
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\obj\Release\DATA.csprojAssemblyReference.cache
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\obj\Release\DATA.csproj.CoreCompileInputs.cache
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\obj\Release\DATA.csproj.CopyComplete
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\obj\Release\DATA.dll
+C:\Users\ronny\OneDrive\שולחן העבודה\FinalProject\API\DATA\obj\Release\DATA.pdb
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\DATA.dll.config
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\DATA.dll
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\DATA.pdb
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\EntityFramework.dll
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\Newtonsoft.Json.dll
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\System.Net.Http.Formatting.dll
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\System.Web.Cors.dll
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\System.Web.Http.Cors.dll
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\System.Web.Http.dll
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\EntityFramework.xml
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\Newtonsoft.Json.xml
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\System.Net.Http.Formatting.xml
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\System.Web.Http.xml
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\bin\Release\System.Web.Http.Cors.xml
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\obj\Release\DATA.csprojAssemblyReference.cache
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\obj\Release\DATA.csproj.CoreCompileInputs.cache
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\obj\Release\DATA.csproj.CopyComplete
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\obj\Release\DATA.dll
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\FinalProject\API\DATA\obj\Release\DATA.pdb

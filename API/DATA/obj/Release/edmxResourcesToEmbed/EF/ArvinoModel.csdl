@@ -1,0 +1,639 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ArvinoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="ArvinoDbContext" annotation:LazyLoadingEnabled="false">
+    <EntitySet Name="RV_Answers" EntityType="ArvinoModel.RV_Answers" />
+    <EntitySet Name="RV_AreaCategory" EntityType="ArvinoModel.RV_AreaCategory" />
+    <EntitySet Name="RV_ChatRoom" EntityType="ArvinoModel.RV_ChatRoom" />
+    <EntitySet Name="RV_Comment" EntityType="ArvinoModel.RV_Comment" />
+    <EntitySet Name="RV_Competition" EntityType="ArvinoModel.RV_Competition" />
+    <EntitySet Name="RV_Event" EntityType="ArvinoModel.RV_Event" />
+    <EntitySet Name="RV_EventCategory" EntityType="ArvinoModel.RV_EventCategory" />
+    <EntitySet Name="RV_Group" EntityType="ArvinoModel.RV_Group" />
+    <EntitySet Name="RV_GroupMessages" EntityType="ArvinoModel.RV_GroupMessages" />
+    <EntitySet Name="RV_GroupMessages1" EntityType="ArvinoModel.RV_GroupMessages1" />
+    <EntitySet Name="RV_KeyWords" EntityType="ArvinoModel.RV_KeyWords" />
+    <EntitySet Name="RV_MessageInGroup" EntityType="ArvinoModel.RV_MessageInGroup" />
+    <EntitySet Name="RV_NoteFromSystemManager" EntityType="ArvinoModel.RV_NoteFromSystemManager" />
+    <EntitySet Name="RV_PurchasedEventsByUsers" EntityType="ArvinoModel.RV_PurchasedEventsByUsers" />
+    <EntitySet Name="RV_Question" EntityType="ArvinoModel.RV_Question" />
+    <EntitySet Name="RV_Rate" EntityType="ArvinoModel.RV_Rate" />
+    <EntitySet Name="RV_Service" EntityType="ArvinoModel.RV_Service" />
+    <EntitySet Name="RV_ServiceImage" EntityType="ArvinoModel.RV_ServiceImage" />
+    <EntitySet Name="RV_User" EntityType="ArvinoModel.RV_User" />
+    <EntitySet Name="RV_UserJoinChatRoom" EntityType="ArvinoModel.RV_UserJoinChatRoom" />
+    <EntitySet Name="RV_UserJoinGroup" EntityType="ArvinoModel.RV_UserJoinGroup" />
+    <EntitySet Name="RV_UserScore" EntityType="ArvinoModel.RV_UserScore" />
+    <EntitySet Name="RV_UserType" EntityType="ArvinoModel.RV_UserType" />
+    <EntitySet Name="RV_Wine" EntityType="ArvinoModel.RV_Wine" />
+    <EntitySet Name="RV_WineCategory" EntityType="ArvinoModel.RV_WineCategory" />
+    <EntitySet Name="RV_Winery" EntityType="ArvinoModel.RV_Winery" />
+    <EntitySet Name="RV_WineryImage" EntityType="ArvinoModel.RV_WineryImage" />
+    <EntitySet Name="RV_WineryManager" EntityType="ArvinoModel.RV_WineryManager" />
+    <AssociationSet Name="FK__RV_Answer__quest__02C769E9" Association="ArvinoModel.FK__RV_Answer__quest__02C769E9">
+      <End Role="RV_Question" EntitySet="RV_Question" />
+      <End Role="RV_Answers" EntitySet="RV_Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_UserJo__chatR__7F2BE32F" Association="ArvinoModel.FK__RV_UserJo__chatR__7F2BE32F">
+      <End Role="RV_ChatRoom" EntitySet="RV_ChatRoom" />
+      <End Role="RV_UserJoinChatRoom" EntitySet="RV_UserJoinChatRoom" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_Commen__wineI__531856C7" Association="ArvinoModel.FK__RV_Commen__wineI__531856C7">
+      <End Role="RV_Wine" EntitySet="RV_Wine" />
+      <End Role="RV_Comment" EntitySet="RV_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_Compet__wineI__3B40CD36" Association="ArvinoModel.FK__RV_Compet__wineI__3B40CD36">
+      <End Role="RV_Wine" EntitySet="RV_Wine" />
+      <End Role="RV_Competition" EntitySet="RV_Competition" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_Event__catego__22751F6C" Association="ArvinoModel.FK__RV_Event__catego__22751F6C">
+      <End Role="RV_EventCategory" EntitySet="RV_EventCategory" />
+      <End Role="RV_Event" EntitySet="RV_Event" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_Purcha__event__3CF40B7E" Association="ArvinoModel.FK__RV_Purcha__event__3CF40B7E">
+      <End Role="RV_Event" EntitySet="RV_Event" />
+      <End Role="RV_PurchasedEventsByUsers" EntitySet="RV_PurchasedEventsByUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_KeyWor__group__6DCC4D03" Association="ArvinoModel.FK__RV_KeyWor__group__6DCC4D03">
+      <End Role="RV_Group" EntitySet="RV_Group" />
+      <End Role="RV_KeyWords" EntitySet="RV_KeyWords" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_Messag__group__7849DB76" Association="ArvinoModel.FK__RV_Messag__group__7849DB76">
+      <End Role="RV_Group" EntitySet="RV_Group" />
+      <End Role="RV_MessageInGroup" EntitySet="RV_MessageInGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_UserJo__group__719CDDE7" Association="ArvinoModel.FK__RV_UserJo__group__719CDDE7">
+      <End Role="RV_Group" EntitySet="RV_Group" />
+      <End Role="RV_UserJoinGroup" EntitySet="RV_UserJoinGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_GroupMessages_RV_Group" Association="ArvinoModel.FK_RV_GroupMessages_RV_Group">
+      <End Role="RV_Group" EntitySet="RV_Group" />
+      <End Role="RV_GroupMessages" EntitySet="RV_GroupMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_GroupMessages_RV_User" Association="ArvinoModel.FK_RV_GroupMessages_RV_User">
+      <End Role="RV_User" EntitySet="RV_User" />
+      <End Role="RV_GroupMessages" EntitySet="RV_GroupMessages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_GroupMessages1_RV_User" Association="ArvinoModel.FK_RV_GroupMessages1_RV_User">
+      <End Role="RV_User" EntitySet="RV_User" />
+      <End Role="RV_GroupMessages1" EntitySet="RV_GroupMessages1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_NoteFr__targe__08B54D69" Association="ArvinoModel.FK__RV_NoteFr__targe__08B54D69">
+      <End Role="RV_WineryManager" EntitySet="RV_WineryManager" />
+      <End Role="RV_NoteFromSystemManager" EntitySet="RV_NoteFromSystemManager" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_Rate__wineId__4C6B5938" Association="ArvinoModel.FK__RV_Rate__wineId__4C6B5938">
+      <End Role="RV_Wine" EntitySet="RV_Wine" />
+      <End Role="RV_Rate" EntitySet="RV_Rate" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_Servic__servi__2CF2ADDF" Association="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF">
+      <End Role="RV_Service" EntitySet="RV_Service" />
+      <End Role="RV_ServiceImage" EntitySet="RV_ServiceImage" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_User_RV_UserType" Association="ArvinoModel.FK_RV_User_RV_UserType">
+      <End Role="RV_UserType" EntitySet="RV_UserType" />
+      <End Role="RV_User" EntitySet="RV_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_Winery_RV_User" Association="ArvinoModel.FK_RV_Winery_RV_User">
+      <End Role="RV_User" EntitySet="RV_User" />
+      <End Role="RV_Winery" EntitySet="RV_Winery" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_Wine__categor__3587F3E0" Association="ArvinoModel.FK__RV_Wine__categor__3587F3E0">
+      <End Role="RV_WineCategory" EntitySet="RV_WineCategory" />
+      <End Role="RV_Wine" EntitySet="RV_Wine" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="RV_Answers">
+    <Key>
+      <PropertyRef Name="email" />
+      <PropertyRef Name="questionId" />
+    </Key>
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="questionId" Type="Int32" Nullable="false" />
+    <Property Name="ans" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="RV_Question" Relationship="ArvinoModel.FK__RV_Answer__quest__02C769E9" FromRole="RV_Answers" ToRole="RV_Question" />
+  </EntityType>
+  <EntityType Name="RV_AreaCategory">
+    <Key>
+      <PropertyRef Name="areaId" />
+    </Key>
+    <Property Name="areaId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="areaName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="RV_ChatRoom">
+    <Key>
+      <PropertyRef Name="chatRoomId" />
+    </Key>
+    <Property Name="chatRoomId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RV_UserJoinChatRoom" Relationship="ArvinoModel.FK__RV_UserJo__chatR__7F2BE32F" FromRole="RV_ChatRoom" ToRole="RV_UserJoinChatRoom" />
+  </EntityType>
+  <EntityType Name="RV_Comment">
+    <Key>
+      <PropertyRef Name="commentId" />
+      <PropertyRef Name="wineId" />
+    </Key>
+    <Property Name="commentId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="commentDate" Type="DateTime" Precision="0" />
+    <Property Name="commentTime" Type="DateTime" Precision="3" />
+    <Property Name="content" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="wineId" Type="Int32" Nullable="false" />
+    <Property Name="respondedUserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RV_Wine" Relationship="ArvinoModel.FK__RV_Commen__wineI__531856C7" FromRole="RV_Comment" ToRole="RV_Wine" />
+  </EntityType>
+  <EntityType Name="RV_Competition">
+    <Key>
+      <PropertyRef Name="competitionId" />
+    </Key>
+    <Property Name="competitionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="competitionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="winingPlaceInCompetition" Type="Int32" Nullable="false" />
+    <Property Name="wineId" Type="Int32" />
+    <NavigationProperty Name="RV_Wine" Relationship="ArvinoModel.FK__RV_Compet__wineI__3B40CD36" FromRole="RV_Competition" ToRole="RV_Wine" />
+  </EntityType>
+  <EntityType Name="RV_Event">
+    <Key>
+      <PropertyRef Name="eventId" />
+    </Key>
+    <Property Name="eventId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="eventName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="participantsAmount" Type="Int32" Nullable="false" />
+    <Property Name="eventDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="startTime" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="eventImgPath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="categoryId" Type="Int32" />
+    <Property Name="wineryId" Type="Int32" />
+    <Property Name="ticketsPurchased" Type="Int32" />
+    <NavigationProperty Name="RV_EventCategory" Relationship="ArvinoModel.FK__RV_Event__catego__22751F6C" FromRole="RV_Event" ToRole="RV_EventCategory" />
+    <NavigationProperty Name="RV_PurchasedEventsByUsers" Relationship="ArvinoModel.FK__RV_Purcha__event__3CF40B7E" FromRole="RV_Event" ToRole="RV_PurchasedEventsByUsers" />
+  </EntityType>
+  <EntityType Name="RV_EventCategory">
+    <Key>
+      <PropertyRef Name="categoryId" />
+    </Key>
+    <Property Name="categoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RV_Event" Relationship="ArvinoModel.FK__RV_Event__catego__22751F6C" FromRole="RV_EventCategory" ToRole="RV_Event" />
+  </EntityType>
+  <EntityType Name="RV_Group">
+    <Key>
+      <PropertyRef Name="groupId" />
+    </Key>
+    <Property Name="groupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="groupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ImgPath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="groupDescription" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="creatorEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RV_KeyWords" Relationship="ArvinoModel.FK__RV_KeyWor__group__6DCC4D03" FromRole="RV_Group" ToRole="RV_KeyWords" />
+    <NavigationProperty Name="RV_MessageInGroup" Relationship="ArvinoModel.FK__RV_Messag__group__7849DB76" FromRole="RV_Group" ToRole="RV_MessageInGroup" />
+    <NavigationProperty Name="RV_UserJoinGroup" Relationship="ArvinoModel.FK__RV_UserJo__group__719CDDE7" FromRole="RV_Group" ToRole="RV_UserJoinGroup" />
+    <NavigationProperty Name="RV_GroupMessages" Relationship="ArvinoModel.FK_RV_GroupMessages_RV_Group" FromRole="RV_Group" ToRole="RV_GroupMessages" />
+  </EntityType>
+  <EntityType Name="RV_GroupMessages">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <Property Name="userEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RV_Group" Relationship="ArvinoModel.FK_RV_GroupMessages_RV_Group" FromRole="RV_GroupMessages" ToRole="RV_Group" />
+    <NavigationProperty Name="RV_User" Relationship="ArvinoModel.FK_RV_GroupMessages_RV_User" FromRole="RV_GroupMessages" ToRole="RV_User" />
+  </EntityType>
+  <EntityType Name="RV_GroupMessages1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="GroupID" Type="Int32" />
+    <Property Name="userEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="text" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="createdAt" Type="DateTime" Precision="3" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RV_User" Relationship="ArvinoModel.FK_RV_GroupMessages1_RV_User" FromRole="RV_GroupMessages1" ToRole="RV_User" />
+  </EntityType>
+  <EntityType Name="RV_KeyWords">
+    <Key>
+      <PropertyRef Name="keyWordNum" />
+    </Key>
+    <Property Name="keyWordNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="keyWord" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="groupId" Type="Int32" />
+    <NavigationProperty Name="RV_Group" Relationship="ArvinoModel.FK__RV_KeyWor__group__6DCC4D03" FromRole="RV_KeyWords" ToRole="RV_Group" />
+  </EntityType>
+  <EntityType Name="RV_MessageInGroup">
+    <Key>
+      <PropertyRef Name="messageId" />
+    </Key>
+    <Property Name="messageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sentTime" Type="DateTime" Precision="3" />
+    <Property Name="sentDate" Type="DateTime" Precision="0" />
+    <Property Name="content" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="groupId" Type="Int32" />
+    <Property Name="senderEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RV_Group" Relationship="ArvinoModel.FK__RV_Messag__group__7849DB76" FromRole="RV_MessageInGroup" ToRole="RV_Group" />
+  </EntityType>
+  <EntityType Name="RV_NoteFromSystemManager">
+    <Key>
+      <PropertyRef Name="noteId" />
+    </Key>
+    <Property Name="noteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="content" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="noteDate" Type="DateTime" Precision="0" />
+    <Property Name="sentTime" Type="DateTime" Precision="3" />
+    <Property Name="noteStatus" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="systemManagerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="targetEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RV_WineryManager" Relationship="ArvinoModel.FK__RV_NoteFr__targe__08B54D69" FromRole="RV_NoteFromSystemManager" ToRole="RV_WineryManager" />
+  </EntityType>
+  <EntityType Name="RV_PurchasedEventsByUsers">
+    <Key>
+      <PropertyRef Name="purchaseId" />
+    </Key>
+    <Property Name="purchaseId" Type="Int32" Nullable="false" />
+    <Property Name="ticketsPurchased" Type="Int32" Nullable="false" />
+    <Property Name="purchaseDate" Type="DateTime" Precision="0" />
+    <Property Name="purchaseTime" Type="DateTime" Precision="3" />
+    <Property Name="eventId" Type="Int32" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="rowVersion" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="RV_Event" Relationship="ArvinoModel.FK__RV_Purcha__event__3CF40B7E" FromRole="RV_PurchasedEventsByUsers" ToRole="RV_Event" />
+  </EntityType>
+  <EntityType Name="RV_Question">
+    <Key>
+      <PropertyRef Name="questionId" />
+    </Key>
+    <Property Name="questionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="content" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ans1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ans2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ans3" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ans4" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RV_Answers" Relationship="ArvinoModel.FK__RV_Answer__quest__02C769E9" FromRole="RV_Question" ToRole="RV_Answers" />
+  </EntityType>
+  <EntityType Name="RV_Rate">
+    <Key>
+      <PropertyRef Name="rateId" />
+      <PropertyRef Name="wineId" />
+    </Key>
+    <Property Name="rateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="rateDate" Type="DateTime" Precision="0" />
+    <Property Name="rateTime" Type="DateTime" Precision="3" />
+    <Property Name="wineId" Type="Int32" Nullable="false" />
+    <Property Name="score" Type="Int32" Nullable="false" />
+    <Property Name="ratedByUserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RV_Wine" Relationship="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" FromRole="RV_Rate" ToRole="RV_Wine" />
+  </EntityType>
+  <EntityType Name="RV_Service">
+    <Key>
+      <PropertyRef Name="serviceId" />
+    </Key>
+    <Property Name="serviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="serviceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="serviceCategory" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="content" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="wineryId" Type="Int32" />
+    <NavigationProperty Name="RV_ServiceImage" Relationship="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF" FromRole="RV_Service" ToRole="RV_ServiceImage" />
+  </EntityType>
+  <EntityType Name="RV_ServiceImage">
+    <Key>
+      <PropertyRef Name="imgId" />
+    </Key>
+    <Property Name="imgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImgPath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="serviceId" Type="Int32" />
+    <NavigationProperty Name="RV_Service" Relationship="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF" FromRole="RV_ServiceImage" ToRole="RV_Service" />
+  </EntityType>
+  <EntityType Name="RV_User">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="typeId" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="picture" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="registrationDate" Type="DateTime" Precision="3" />
+    <Property Name="isOlder" Type="Boolean" />
+    <NavigationProperty Name="RV_GroupMessages" Relationship="ArvinoModel.FK_RV_GroupMessages_RV_User" FromRole="RV_User" ToRole="RV_GroupMessages" />
+    <NavigationProperty Name="RV_GroupMessages1" Relationship="ArvinoModel.FK_RV_GroupMessages1_RV_User" FromRole="RV_User" ToRole="RV_GroupMessages1" />
+    <NavigationProperty Name="RV_UserType" Relationship="ArvinoModel.FK_RV_User_RV_UserType" FromRole="RV_User" ToRole="RV_UserType" />
+    <NavigationProperty Name="RV_Winery" Relationship="ArvinoModel.FK_RV_Winery_RV_User" FromRole="RV_User" ToRole="RV_Winery" />
+  </EntityType>
+  <EntityType Name="RV_UserJoinChatRoom">
+    <Key>
+      <PropertyRef Name="chatRoomId" />
+      <PropertyRef Name="creatorEmail" />
+    </Key>
+    <Property Name="chatRoomId" Type="Int32" Nullable="false" />
+    <Property Name="creatorEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RV_ChatRoom" Relationship="ArvinoModel.FK__RV_UserJo__chatR__7F2BE32F" FromRole="RV_UserJoinChatRoom" ToRole="RV_ChatRoom" />
+  </EntityType>
+  <EntityType Name="RV_UserJoinGroup">
+    <Key>
+      <PropertyRef Name="userEmail" />
+      <PropertyRef Name="groupId" />
+    </Key>
+    <Property Name="userEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="groupId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RV_Group" Relationship="ArvinoModel.FK__RV_UserJo__group__719CDDE7" FromRole="RV_UserJoinGroup" ToRole="RV_Group" />
+  </EntityType>
+  <EntityType Name="RV_UserScore">
+    <Key>
+      <PropertyRef Name="scoreId" />
+    </Key>
+    <Property Name="scoreId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="scoreName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RV_UserType">
+    <Key>
+      <PropertyRef Name="typeId" />
+    </Key>
+    <Property Name="typeId" Type="Int32" Nullable="false" />
+    <Property Name="typeName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RV_User" Relationship="ArvinoModel.FK_RV_User_RV_UserType" FromRole="RV_UserType" ToRole="RV_User" />
+  </EntityType>
+  <EntityType Name="RV_Wine">
+    <Key>
+      <PropertyRef Name="wineId" />
+    </Key>
+    <Property Name="wineId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="wineName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="content" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="wineImgPath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="wineLabelPath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="categoryId" Type="Int32" />
+    <Property Name="wineryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="RV_Comment" Relationship="ArvinoModel.FK__RV_Commen__wineI__531856C7" FromRole="RV_Wine" ToRole="RV_Comment" />
+    <NavigationProperty Name="RV_Competition" Relationship="ArvinoModel.FK__RV_Compet__wineI__3B40CD36" FromRole="RV_Wine" ToRole="RV_Competition" />
+    <NavigationProperty Name="RV_Rate" Relationship="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" FromRole="RV_Wine" ToRole="RV_Rate" />
+    <NavigationProperty Name="RV_WineCategory" Relationship="ArvinoModel.FK__RV_Wine__categor__3587F3E0" FromRole="RV_Wine" ToRole="RV_WineCategory" />
+  </EntityType>
+  <EntityType Name="RV_WineCategory">
+    <Key>
+      <PropertyRef Name="categoryId" />
+    </Key>
+    <Property Name="categoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="categoryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RV_Wine" Relationship="ArvinoModel.FK__RV_Wine__categor__3587F3E0" FromRole="RV_WineCategory" ToRole="RV_Wine" />
+  </EntityType>
+  <EntityType Name="RV_Winery">
+    <Key>
+      <PropertyRef Name="wineryId" />
+    </Key>
+    <Property Name="wineryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="wineryName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="wineryAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="wineryEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="statusType" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="IconImgPath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="areaId" Type="Int32" />
+    <Property Name="wineryManagerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="RV_User" Relationship="ArvinoModel.FK_RV_Winery_RV_User" FromRole="RV_Winery" ToRole="RV_User" />
+  </EntityType>
+  <EntityType Name="RV_WineryImage">
+    <Key>
+      <PropertyRef Name="ImgId" />
+    </Key>
+    <Property Name="ImgId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImgPath" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="wineryId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="RV_WineryManager">
+    <Key>
+      <PropertyRef Name="email" />
+    </Key>
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="firstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="phone" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="registrationDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="RV_NoteFromSystemManager" Relationship="ArvinoModel.FK__RV_NoteFr__targe__08B54D69" FromRole="RV_WineryManager" ToRole="RV_NoteFromSystemManager" />
+  </EntityType>
+  <Association Name="FK__RV_Answer__quest__02C769E9">
+    <End Type="ArvinoModel.RV_Question" Role="RV_Question" Multiplicity="1" />
+    <End Type="ArvinoModel.RV_Answers" Role="RV_Answers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Question">
+        <PropertyRef Name="questionId" />
+      </Principal>
+      <Dependent Role="RV_Answers">
+        <PropertyRef Name="questionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_UserJo__chatR__7F2BE32F">
+    <End Type="ArvinoModel.RV_ChatRoom" Role="RV_ChatRoom" Multiplicity="1" />
+    <End Type="ArvinoModel.RV_UserJoinChatRoom" Role="RV_UserJoinChatRoom" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_ChatRoom">
+        <PropertyRef Name="chatRoomId" />
+      </Principal>
+      <Dependent Role="RV_UserJoinChatRoom">
+        <PropertyRef Name="chatRoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_Commen__wineI__531856C7">
+    <End Type="ArvinoModel.RV_Wine" Role="RV_Wine" Multiplicity="1" />
+    <End Type="ArvinoModel.RV_Comment" Role="RV_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Wine">
+        <PropertyRef Name="wineId" />
+      </Principal>
+      <Dependent Role="RV_Comment">
+        <PropertyRef Name="wineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_Compet__wineI__3B40CD36">
+    <End Type="ArvinoModel.RV_Wine" Role="RV_Wine" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_Competition" Role="RV_Competition" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Wine">
+        <PropertyRef Name="wineId" />
+      </Principal>
+      <Dependent Role="RV_Competition">
+        <PropertyRef Name="wineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_Event__catego__22751F6C">
+    <End Type="ArvinoModel.RV_EventCategory" Role="RV_EventCategory" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_Event" Role="RV_Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_EventCategory">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="RV_Event">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_Purcha__event__3CF40B7E">
+    <End Type="ArvinoModel.RV_Event" Role="RV_Event" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_PurchasedEventsByUsers" Role="RV_PurchasedEventsByUsers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Event">
+        <PropertyRef Name="eventId" />
+      </Principal>
+      <Dependent Role="RV_PurchasedEventsByUsers">
+        <PropertyRef Name="eventId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_KeyWor__group__6DCC4D03">
+    <End Type="ArvinoModel.RV_Group" Role="RV_Group" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_KeyWords" Role="RV_KeyWords" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Group">
+        <PropertyRef Name="groupId" />
+      </Principal>
+      <Dependent Role="RV_KeyWords">
+        <PropertyRef Name="groupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_Messag__group__7849DB76">
+    <End Type="ArvinoModel.RV_Group" Role="RV_Group" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_MessageInGroup" Role="RV_MessageInGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Group">
+        <PropertyRef Name="groupId" />
+      </Principal>
+      <Dependent Role="RV_MessageInGroup">
+        <PropertyRef Name="groupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_UserJo__group__719CDDE7">
+    <End Type="ArvinoModel.RV_Group" Role="RV_Group" Multiplicity="1" />
+    <End Type="ArvinoModel.RV_UserJoinGroup" Role="RV_UserJoinGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Group">
+        <PropertyRef Name="groupId" />
+      </Principal>
+      <Dependent Role="RV_UserJoinGroup">
+        <PropertyRef Name="groupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RV_GroupMessages_RV_Group">
+    <End Type="ArvinoModel.RV_Group" Role="RV_Group" Multiplicity="1" />
+    <End Type="ArvinoModel.RV_GroupMessages" Role="RV_GroupMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Group">
+        <PropertyRef Name="groupId" />
+      </Principal>
+      <Dependent Role="RV_GroupMessages">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RV_GroupMessages_RV_User">
+    <End Type="ArvinoModel.RV_User" Role="RV_User" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_GroupMessages" Role="RV_GroupMessages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_User">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="RV_GroupMessages">
+        <PropertyRef Name="userEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RV_GroupMessages1_RV_User">
+    <End Type="ArvinoModel.RV_User" Role="RV_User" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_GroupMessages1" Role="RV_GroupMessages1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_User">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="RV_GroupMessages1">
+        <PropertyRef Name="userEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_NoteFr__targe__08B54D69">
+    <End Type="ArvinoModel.RV_WineryManager" Role="RV_WineryManager" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_NoteFromSystemManager" Role="RV_NoteFromSystemManager" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_WineryManager">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="RV_NoteFromSystemManager">
+        <PropertyRef Name="targetEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_Rate__wineId__4C6B5938">
+    <End Type="ArvinoModel.RV_Wine" Role="RV_Wine" Multiplicity="1" />
+    <End Type="ArvinoModel.RV_Rate" Role="RV_Rate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Wine">
+        <PropertyRef Name="wineId" />
+      </Principal>
+      <Dependent Role="RV_Rate">
+        <PropertyRef Name="wineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_Servic__servi__2CF2ADDF">
+    <End Type="ArvinoModel.RV_Service" Role="RV_Service" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="ArvinoModel.RV_ServiceImage" Role="RV_ServiceImage" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Service">
+        <PropertyRef Name="serviceId" />
+      </Principal>
+      <Dependent Role="RV_ServiceImage">
+        <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RV_User_RV_UserType">
+    <End Type="ArvinoModel.RV_UserType" Role="RV_UserType" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_User" Role="RV_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_UserType">
+        <PropertyRef Name="typeId" />
+      </Principal>
+      <Dependent Role="RV_User">
+        <PropertyRef Name="typeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RV_Winery_RV_User">
+    <End Type="ArvinoModel.RV_User" Role="RV_User" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_Winery" Role="RV_Winery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_User">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="RV_Winery">
+        <PropertyRef Name="wineryManagerEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_Wine__categor__3587F3E0">
+    <End Type="ArvinoModel.RV_WineCategory" Role="RV_WineCategory" Multiplicity="0..1" />
+    <End Type="ArvinoModel.RV_Wine" Role="RV_Wine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_WineCategory">
+        <PropertyRef Name="categoryId" />
+      </Principal>
+      <Dependent Role="RV_Wine">
+        <PropertyRef Name="categoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
