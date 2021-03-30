@@ -197,6 +197,7 @@
     <Compile Include="Models\AreaCategoryModel.cs" />
     <Compile Include="Models\EventCategoryModel.cs" />
     <Compile Include="Models\EventModel.cs" />
+    <Compile Include="Models\GroupModel.cs" />
     <Compile Include="Models\ServiceImageModel.cs" />
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\UserModel.cs" />

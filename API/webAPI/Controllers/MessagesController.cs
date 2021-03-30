@@ -55,6 +55,28 @@ namespace webAPI.Controllers
             }
         }
 
-        
+
+        public IHttpActionResult Post([FromBody] GMDTO value)
+        {
+            try
+            {
+                RV_GroupMessages gm = new RV_GroupMessages()
+                {
+                  createdAt=value.createdAt,
+                  userEmail= value.user._id,
+                  text=value.text,
+                  GroupID =value.groupId
+
+                };
+                db.RV_GroupMessages.Add(gm);
+                db.SaveChanges();
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
     }
 }

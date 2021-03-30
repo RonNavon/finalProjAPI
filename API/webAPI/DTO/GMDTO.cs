@@ -10,6 +10,7 @@ namespace webAPI.DTO
         public int _id { get; set; }
         public DateTime? createdAt { get; set; }
         public string text { get; set; }
+        public int groupId { get; set; }
         public GMUserDTO user { get; set; }
     }
 }
