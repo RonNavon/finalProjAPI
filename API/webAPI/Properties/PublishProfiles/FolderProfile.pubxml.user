@@ -77,13 +77,21 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/29/2021 16:10:43</publishTime>
     </File>
     <File Include="bin/DATA.dll">
+<<<<<<< Updated upstream
       <publishTime>03/29/2021 17:35:47</publishTime>
+=======
+      <publishTime>03/29/2021 21:36:24</publishTime>
+>>>>>>> Stashed changes
     </File>
     <File Include="bin/DATA.dll.config">
       <publishTime>03/29/2021 16:10:43</publishTime>
     </File>
     <File Include="bin/DATA.pdb">
+<<<<<<< Updated upstream
       <publishTime>03/29/2021 17:35:47</publishTime>
+=======
+      <publishTime>03/29/2021 21:36:24</publishTime>
+>>>>>>> Stashed changes
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>03/29/2021 16:10:43</publishTime>
@@ -284,10 +292,17 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/29/2021 16:10:43</publishTime>
     </File>
     <File Include="bin/webAPI.dll">
+<<<<<<< Updated upstream
       <publishTime>03/29/2021 17:35:48</publishTime>
     </File>
     <File Include="bin/webAPI.pdb">
       <publishTime>03/29/2021 17:35:48</publishTime>
+=======
+      <publishTime>03/29/2021 23:48:09</publishTime>
+    </File>
+    <File Include="bin/webAPI.pdb">
+      <publishTime>03/29/2021 23:48:09</publishTime>
+>>>>>>> Stashed changes
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>03/29/2021 16:10:44</publishTime>
@@ -383,7 +398,11 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>03/29/2021 16:10:45</publishTime>
     </File>
     <File Include="Web.config">
+<<<<<<< Updated upstream
       <publishTime>03/29/2021 17:35:51</publishTime>
+=======
+      <publishTime>03/29/2021 21:49:21</publishTime>
+>>>>>>> Stashed changes
     </File>
   </ItemGroup>
 </Project>
