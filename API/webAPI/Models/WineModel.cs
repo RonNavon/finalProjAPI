@@ -27,7 +27,9 @@ namespace webAPI.Models
                 price = w.price,
                 wineLabelPath = w.wineLabelPath,
                 categoryId = w.categoryId ?? 0,
-                wineryId = w.wineryId
+                wineryId = w.wineryId,
+                wineryName=db.RV_Winery.FirstOrDefault(i=>i.wineryId == w.wineryId).wineryName,
+                wineryImage=db.RV_Winery.FirstOrDefault(i=>i.wineryId== w.wineryId).IconImgPath
 
             }).ToList();
         }

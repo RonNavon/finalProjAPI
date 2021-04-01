@@ -16,6 +16,8 @@ namespace webAPI.DTO
         public string wineLabelPath;
         public int categoryId;
         public int wineryId;
+        public string wineryName;
+        public string wineryImage;
 
     }
 }

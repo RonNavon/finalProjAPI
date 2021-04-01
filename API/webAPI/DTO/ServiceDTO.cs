@@ -15,6 +15,7 @@ namespace webAPI.DTO
         public int price;
         public int wineryId;
         public string wineryName;
+        public string wineryImg;
         public List<ServiceImageDTO> images;
 
     }

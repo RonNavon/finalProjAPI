@@ -23,7 +23,9 @@ namespace webAPI.Models
                 serviceCategory = s.serviceCategory,
                 content = s.content,
                 price = s.price,
-                wineryId = s.wineryId ?? 0,
+                wineryId =s.wineryId ?? 0,
+                wineryName = db.RV_Winery.FirstOrDefault(i=>i.wineryId == s.wineryId).wineryName,
+                wineryImg=db.RV_Winery.FirstOrDefault(i=>i.wineryId==s.wineryId).IconImgPath,
                 images = db.RV_ServiceImage
                     .Where(i => i.serviceId == s.serviceId)
                         .Select(dt => new ServiceImageDTO()
