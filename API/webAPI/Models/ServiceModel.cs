@@ -13,6 +13,9 @@ namespace webAPI.Models
 
         public static List<ServiceDTO> GetServices(ArvinoDbContext db)
         {
+            List<ServiceDTO> returnList = new List<ServiceDTO>();
+
+
             return db.RV_Service.Select(s => new ServiceDTO()
             {
                 serviceId = s.serviceId,
@@ -21,29 +24,37 @@ namespace webAPI.Models
                 content = s.content,
                 price = s.price,
                 wineryId = s.wineryId ?? 0,
+                images = db.RV_ServiceImage
+                    .Where(i => i.serviceId == s.serviceId)
+                        .Select(dt => new ServiceImageDTO()
+                        {
+                            imgId = dt.imgId,
+                            ImgPath = dt.ImgPath
 
-            }).ToList();
+                        }).ToList()
+
+             }).ToList();
         }
 
-        public static List<ServiceDTO> GetAllServices(int wineryId, ArvinoDbContext db)
+    public static List<ServiceDTO> GetAllServices(int wineryId, ArvinoDbContext db)
+    {
+        return db.RV_Service.Where(i => i.wineryId == wineryId).Select(s => new ServiceDTO()
         {
-            return db.RV_Service.Where(i => i.wineryId == wineryId).Select(s => new ServiceDTO()
-            {
-                serviceId = s.serviceId,
-                serviceName = s.serviceName,
-                serviceCategory = s.serviceCategory,
-                content = s.content,
-                price =s.price,
-                wineryId = s.wineryId ?? 0,
+            serviceId = s.serviceId,
+            serviceName = s.serviceName,
+            serviceCategory = s.serviceCategory,
+            content = s.content,
+            price = s.price,
+            wineryId = s.wineryId ?? 0,
 
-            }).ToList();
-        }
-
-
-        public static RV_Service GetService(int id, ArvinoDbContext db)
-        {
-            return db.RV_Service.SingleOrDefault(x => x.serviceId == id);
-        }
-
+        }).ToList();
     }
+
+
+    public static RV_Service GetService(int id, ArvinoDbContext db)
+    {
+        return db.RV_Service.SingleOrDefault(x => x.serviceId == id);
+    }
+
+}
 }

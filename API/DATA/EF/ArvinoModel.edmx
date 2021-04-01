@@ -651,7 +651,6 @@
           <EntitySet Name="RV_PurchasedEventsByUsers" EntityType="ArvinoModel.RV_PurchasedEventsByUsers" />
           <EntitySet Name="RV_Question" EntityType="ArvinoModel.RV_Question" />
           <EntitySet Name="RV_Rate" EntityType="ArvinoModel.RV_Rate" />
-          <EntitySet Name="RV_Service" EntityType="ArvinoModel.RV_Service" />
           <EntitySet Name="RV_ServiceImage" EntityType="ArvinoModel.RV_ServiceImage" />
           <EntitySet Name="RV_User" EntityType="ArvinoModel.RV_User" />
           <EntitySet Name="RV_UserJoinChatRoom" EntityType="ArvinoModel.RV_UserJoinChatRoom" />
@@ -718,10 +717,6 @@
             <End Role="RV_Wine" EntitySet="RV_Wine" />
             <End Role="RV_Rate" EntitySet="RV_Rate" />
           </AssociationSet>
-          <AssociationSet Name="FK__RV_Servic__servi__2CF2ADDF" Association="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF">
-            <End Role="RV_Service" EntitySet="RV_Service" />
-            <End Role="RV_ServiceImage" EntitySet="RV_ServiceImage" />
-          </AssociationSet>
           <AssociationSet Name="FK_RV_User_RV_UserType" Association="ArvinoModel.FK_RV_User_RV_UserType">
             <End Role="RV_UserType" EntitySet="RV_UserType" />
             <End Role="RV_User" EntitySet="RV_User" />
@@ -738,6 +733,11 @@
           <AssociationSet Name="FK_RV_Wine_RV_Winery" Association="ArvinoModel.FK_RV_Wine_RV_Winery">
             <End Role="RV_Winery" EntitySet="RV_Winery" />
             <End Role="RV_Wine" EntitySet="RV_Wine" />
+          </AssociationSet>
+          <EntitySet Name="RV_Service" EntityType="ArvinoModel.RV_Service" />
+          <AssociationSet Name="FK__RV_Servic__servi__2CF2ADDF" Association="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF">
+            <End Role="RV_Service" EntitySet="RV_Service" />
+            <End Role="RV_ServiceImage" EntitySet="RV_ServiceImage" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="RV_Answers">
@@ -924,18 +924,6 @@
           <Property Name="score" Type="Int32" Nullable="false" />
           <Property Name="ratedByUserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="RV_Wine" Relationship="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" FromRole="RV_Rate" ToRole="RV_Wine" />
-        </EntityType>
-        <EntityType Name="RV_Service">
-          <Key>
-            <PropertyRef Name="serviceId" />
-          </Key>
-          <Property Name="serviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="serviceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="serviceCategory" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="content" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="price" Type="Int32" Nullable="false" />
-          <Property Name="wineryId" Type="Int32" />
-          <NavigationProperty Name="RV_ServiceImage" Relationship="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF" FromRole="RV_Service" ToRole="RV_ServiceImage" />
         </EntityType>
         <EntityType Name="RV_ServiceImage">
           <Key>
@@ -1210,20 +1198,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RV_Servic__servi__2CF2ADDF">
-          <End Type="ArvinoModel.RV_Service" Role="RV_Service" Multiplicity="0..1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ArvinoModel.RV_ServiceImage" Role="RV_ServiceImage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RV_Service">
-              <PropertyRef Name="serviceId" />
-            </Principal>
-            <Dependent Role="RV_ServiceImage">
-              <PropertyRef Name="serviceId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_RV_User_RV_UserType">
           <End Type="ArvinoModel.RV_UserType" Role="RV_UserType" Multiplicity="0..1" />
           <End Type="ArvinoModel.RV_User" Role="RV_User" Multiplicity="*" />
@@ -1285,6 +1259,32 @@
             </Principal>
             <Dependent Role="RV_Wine">
               <PropertyRef Name="wineryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RV_Service">
+          <Key>
+            <PropertyRef Name="serviceId" />
+          </Key>
+          <Property Name="serviceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="serviceName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="serviceCategory" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="content" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="wineryId" Type="Int32" />
+          <NavigationProperty Name="RV_ServiceImage" Relationship="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF" FromRole="RV_Service" ToRole="RV_ServiceImage" />
+        </EntityType>
+        <Association Name="FK__RV_Servic__servi__2CF2ADDF">
+          <End Type="ArvinoModel.RV_Service" Role="RV_Service" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ArvinoModel.RV_ServiceImage" Role="RV_ServiceImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RV_Service">
+              <PropertyRef Name="serviceId" />
+            </Principal>
+            <Dependent Role="RV_ServiceImage">
+              <PropertyRef Name="serviceId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1472,18 +1472,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RV_Service">
-            <EntityTypeMapping TypeName="ArvinoModel.RV_Service">
-              <MappingFragment StoreEntitySet="RV_Service">
-                <ScalarProperty Name="wineryId" ColumnName="wineryId" />
-                <ScalarProperty Name="price" ColumnName="price" />
-                <ScalarProperty Name="content" ColumnName="content" />
-                <ScalarProperty Name="serviceCategory" ColumnName="serviceCategory" />
-                <ScalarProperty Name="serviceName" ColumnName="serviceName" />
-                <ScalarProperty Name="serviceId" ColumnName="serviceId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="RV_ServiceImage">
             <EntityTypeMapping TypeName="ArvinoModel.RV_ServiceImage">
               <MappingFragment StoreEntitySet="RV_ServiceImage">
@@ -1594,6 +1582,18 @@
                 <ScalarProperty Name="wineryAddress" ColumnName="wineryAddress" />
                 <ScalarProperty Name="wineryName" ColumnName="wineryName" />
                 <ScalarProperty Name="wineryId" ColumnName="wineryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RV_Service">
+            <EntityTypeMapping TypeName="ArvinoModel.RV_Service">
+              <MappingFragment StoreEntitySet="RV_Service">
+                <ScalarProperty Name="wineryId" ColumnName="wineryId" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="serviceCategory" ColumnName="serviceCategory" />
+                <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+                <ScalarProperty Name="serviceId" ColumnName="serviceId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

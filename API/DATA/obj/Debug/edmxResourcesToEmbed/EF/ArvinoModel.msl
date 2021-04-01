@@ -179,18 +179,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RV_Service">
-      <EntityTypeMapping TypeName="ArvinoModel.RV_Service">
-        <MappingFragment StoreEntitySet="RV_Service">
-          <ScalarProperty Name="wineryId" ColumnName="wineryId" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="content" ColumnName="content" />
-          <ScalarProperty Name="serviceCategory" ColumnName="serviceCategory" />
-          <ScalarProperty Name="serviceName" ColumnName="serviceName" />
-          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RV_ServiceImage">
       <EntityTypeMapping TypeName="ArvinoModel.RV_ServiceImage">
         <MappingFragment StoreEntitySet="RV_ServiceImage">
@@ -301,6 +289,18 @@
           <ScalarProperty Name="wineryAddress" ColumnName="wineryAddress" />
           <ScalarProperty Name="wineryName" ColumnName="wineryName" />
           <ScalarProperty Name="wineryId" ColumnName="wineryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RV_Service">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_Service">
+        <MappingFragment StoreEntitySet="RV_Service">
+          <ScalarProperty Name="wineryId" ColumnName="wineryId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="serviceCategory" ColumnName="serviceCategory" />
+          <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

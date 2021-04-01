@@ -42,7 +42,6 @@ namespace DATA.EF
         public virtual DbSet<RV_PurchasedEventsByUsers> RV_PurchasedEventsByUsers { get; set; }
         public virtual DbSet<RV_Question> RV_Question { get; set; }
         public virtual DbSet<RV_Rate> RV_Rate { get; set; }
-        public virtual DbSet<RV_Service> RV_Service { get; set; }
         public virtual DbSet<RV_ServiceImage> RV_ServiceImage { get; set; }
         public virtual DbSet<RV_User> RV_User { get; set; }
         public virtual DbSet<RV_UserJoinChatRoom> RV_UserJoinChatRoom { get; set; }
@@ -54,5 +53,6 @@ namespace DATA.EF
         public virtual DbSet<RV_WineryImage> RV_WineryImage { get; set; }
         public virtual DbSet<RV_WineryManager> RV_WineryManager { get; set; }
         public virtual DbSet<RV_Winery> RV_Winery { get; set; }
+        public virtual DbSet<RV_Service> RV_Service { get; set; }
     }
 }

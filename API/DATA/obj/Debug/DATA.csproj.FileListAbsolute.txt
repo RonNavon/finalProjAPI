@@ -59,3 +59,4 @@ C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\obj
 C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\obj\Debug\DATA.csproj.CopyComplete
 C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\obj\Debug\DATA.dll
 C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\obj\Debug\DATA.pdb
+C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\obj\Debug\DATA.csprojAssemblyReference.cache
