@@ -38,5 +38,6 @@ namespace DATA.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_Rate> RV_Rate { get; set; }
         public virtual RV_WineCategory RV_WineCategory { get; set; }
+        public virtual RV_Winery RV_Winery { get; set; }
     }
 }

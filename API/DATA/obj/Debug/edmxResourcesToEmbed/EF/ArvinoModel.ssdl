@@ -494,6 +494,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_RV_Wine_RV_Winery">
+    <End Role="RV_Winery" Type="Self.RV_Winery" Multiplicity="1" />
+    <End Role="RV_Wine" Type="Self.RV_Wine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Winery">
+        <PropertyRef Name="wineryId" />
+      </Principal>
+      <Dependent Role="RV_Wine">
+        <PropertyRef Name="wineryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RV_Winery_RV_User">
     <End Role="RV_User" Type="Self.RV_User" Multiplicity="0..1" />
     <End Role="RV_Winery" Type="Self.RV_Winery" Multiplicity="*" />
@@ -603,6 +615,10 @@
     <AssociationSet Name="FK_RV_User_RV_UserType" Association="Self.FK_RV_User_RV_UserType">
       <End Role="RV_UserType" EntitySet="RV_UserType" />
       <End Role="RV_User" EntitySet="RV_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_Wine_RV_Winery" Association="Self.FK_RV_Wine_RV_Winery">
+      <End Role="RV_Winery" EntitySet="RV_Winery" />
+      <End Role="RV_Wine" EntitySet="RV_Wine" />
     </AssociationSet>
     <AssociationSet Name="FK_RV_Winery_RV_User" Association="Self.FK_RV_Winery_RV_User">
       <End Role="RV_User" EntitySet="RV_User" />

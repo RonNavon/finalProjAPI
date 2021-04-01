@@ -8,6 +8,7 @@ using System.Web.Http.Cors;
 using DATA.EF;
 using webAPI.Models;
 using webAPI.DTO;
+using System.Data.Entity;
 
 namespace webAPI.Controllers
 {
@@ -146,6 +147,34 @@ namespace webAPI.Controllers
                 }
                 return Content(HttpStatusCode.NotFound,
                     $"wine with id {id} was not found to update!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        [Route("api/RandomWines")]
+        public IHttpActionResult GetRandomWines(int numOfWines)
+        {
+            try
+            {
+                List<WineDTO> RWines = new List<WineDTO>();
+                List<int> list = db.RV_Wine.Select(i => i.wineId).ToList() ;
+                
+                for (int i = 0; i < numOfWines; i++)
+                {
+                    var rand = new Random().Next(list.Count);
+                    int temp = list[rand];
+                }
+                return Ok();
+                
             }
             catch (Exception ex)
             {
