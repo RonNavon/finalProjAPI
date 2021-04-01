@@ -51,8 +51,8 @@ namespace DATA.EF
         public virtual DbSet<RV_UserType> RV_UserType { get; set; }
         public virtual DbSet<RV_Wine> RV_Wine { get; set; }
         public virtual DbSet<RV_WineCategory> RV_WineCategory { get; set; }
-        public virtual DbSet<RV_Winery> RV_Winery { get; set; }
         public virtual DbSet<RV_WineryImage> RV_WineryImage { get; set; }
         public virtual DbSet<RV_WineryManager> RV_WineryManager { get; set; }
+        public virtual DbSet<RV_Winery> RV_Winery { get; set; }
     }
 }

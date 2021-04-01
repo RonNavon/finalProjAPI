@@ -55,7 +55,6 @@ C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\bin
 C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\bin\Debug\System.Web.Http.xml
 C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\bin\Debug\System.Web.Http.Cors.xml
-C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\obj\Debug\DATA.csprojAssemblyReference.cache
 C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\obj\Debug\DATA.csproj.CoreCompileInputs.cache
 C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\obj\Debug\DATA.csproj.CopyComplete
 C:\Users\vmage\OneDrive\Ruppin\שנה ג\סמסטר ב\finalProjAPI\API\DATA\obj\Debug\DATA.dll

@@ -14,6 +14,12 @@ namespace DATA.EF
     
     public partial class RV_Winery
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RV_Winery()
+        {
+            this.RV_Wine = new HashSet<RV_Wine>();
+        }
+    
         public int wineryId { get; set; }
         public string wineryName { get; set; }
         public string wineryAddress { get; set; }
@@ -25,5 +31,7 @@ namespace DATA.EF
         public string wineryManagerEmail { get; set; }
     
         public virtual RV_User RV_User { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RV_Wine> RV_Wine { get; set; }
     }
 }

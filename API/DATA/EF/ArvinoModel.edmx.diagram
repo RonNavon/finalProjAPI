@@ -30,7 +30,6 @@
         <EntityTypeShape EntityType="ArvinoModel.RV_UserType" Width="1.5" PointX="7.75" PointY="5.125" />
         <EntityTypeShape EntityType="ArvinoModel.RV_Wine" Width="1.5" PointX="3" PointY="3.625" />
         <EntityTypeShape EntityType="ArvinoModel.RV_WineCategory" Width="1.5" PointX="0.75" PointY="4.5" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Winery" Width="1.5" PointX="12.25" PointY="3" />
         <EntityTypeShape EntityType="ArvinoModel.RV_WineryImage" Width="1.5" PointX="7.75" PointY="8.75" />
         <EntityTypeShape EntityType="ArvinoModel.RV_WineryManager" Width="1.5" PointX="14.75" PointY="1.125" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Answer__quest__02C769E9" />
@@ -49,8 +48,10 @@
         <AssociationConnector Association="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF" />
         <AssociationConnector Association="ArvinoModel.FK_RV_User_RV_UserType" />
-        <AssociationConnector Association="ArvinoModel.FK_RV_Winery_RV_User" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Wine__categor__3587F3E0" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_Winery" Width="1.5" PointX="12.375" PointY="3.125" />
+        <AssociationConnector Association="ArvinoModel.FK_RV_Winery_RV_User" />
+        <AssociationConnector Association="ArvinoModel.FK_RV_Wine_RV_Winery" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
