@@ -172,6 +172,7 @@ namespace webAPI.Controllers
                 {
                     var rand = new Random().Next(list.Count);
                     RV_Wine temp = list[rand];
+                    list.Remove(list[rand]);
                     WineDTO sWineDTO = new WineDTO()
                     {
                         wineId=temp.wineId,
