@@ -166,14 +166,28 @@ namespace webAPI.Controllers
             try
             {
                 List<WineDTO> RWines = new List<WineDTO>();
-                List<int> list = db.RV_Wine.Select(i => i.wineId).ToList() ;
+                List<RV_Wine> list = db.RV_Wine.ToList() ;
                 
                 for (int i = 0; i < numOfWines; i++)
                 {
                     var rand = new Random().Next(list.Count);
-                    int temp = list[rand];
+                    RV_Wine temp = list[rand];
+                    WineDTO sWineDTO = new WineDTO()
+                    {
+                        wineId=temp.wineId,
+                        wineImgPath=temp.wineImgPath,
+                        wineName=temp.wineName,
+                        content=temp.content,
+                        price=temp.price,
+                        wineryName= db.RV_Winery.FirstOrDefault(j=>j.wineryId== temp.wineryId).wineryName,
+                        wineryImage = db.RV_Winery.FirstOrDefault(j => j.wineryId == temp.wineryId).IconImgPath,
+                        wineryId = db.RV_Winery.FirstOrDefault(j => j.wineryId == temp.wineryId).wineryId
+
+                    };
+
+                    RWines.Add(sWineDTO);
                 }
-                return Ok();
+                return Ok(RWines);
                 
             }
             catch (Exception ex)
