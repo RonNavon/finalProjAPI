@@ -178,6 +178,7 @@
     <Compile Include="Controllers\ServiceImageController.cs" />
     <Compile Include="Controllers\UploadPictureController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\UserWatchController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WineCategoryController.cs" />
     <Compile Include="Controllers\WineController.cs" />
@@ -260,6 +261,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Group\" />
+    <Folder Include="Views\UserWatch\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
