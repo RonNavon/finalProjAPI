@@ -54,7 +54,7 @@ namespace webAPI.Controllers
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public IHttpActionResult Post([FromBody] ServiceDTO value)
+        public IHttpActionResult Post([FromBody] RV_Service value)
         {
             try
             {
@@ -77,5 +77,58 @@ namespace webAPI.Controllers
             }
         }
 
+
+        /// <summary>
+        /// https://localhost:44370/api/Service/1
+        /// </summary>
+        /// <returns></returns>
+        public IHttpActionResult Delete(int id)
+        {
+            try
+            {
+                RV_Service s = db.RV_Service.SingleOrDefault(service => service.serviceId == id);
+                if (s != null)
+                {
+                    db.RV_Service.Remove(s);
+                    db.SaveChanges();
+                    return Ok();
+                }
+                return Content(HttpStatusCode.NotFound,
+                    $"service with id {id} was not found to delete!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// https://localhost:44370/api/Service/id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public IHttpActionResult Put(int id, [FromBody] RV_Service value)
+        {
+            try
+            {
+                RV_Service s = db.RV_Service.SingleOrDefault(service => service.serviceId == id);
+                if (s != null)
+                {
+                    s.serviceName = value.serviceName;
+                    s.serviceCategory = value.serviceCategory;
+                    s.content = value.content;
+                    s.price = value.price;
+                    db.SaveChanges();
+                    return Ok(s);
+                }
+                return Content(HttpStatusCode.NotFound,
+                    $"sevice was not found to update!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

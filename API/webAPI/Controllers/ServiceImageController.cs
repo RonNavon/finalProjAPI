@@ -96,7 +96,6 @@ namespace webAPI.Controllers
                 if (img != null)
                 {
                     img.ImgPath = value.ImgPath;
-                    img.serviceId = value.serviceId;
                     db.SaveChanges();
                     return Ok(img);
                 }
