@@ -20,7 +20,18 @@ namespace webAPI.Models
             return db.RV_Winery.Where(e => e.areaId == areaId).ToList();
         }
 
-      
+
+
+
+
+
+        public static RV_Winery GetWineryByUser(ArvinoDbContext db, string wineryManagerEmail)
+        {
+            return db.RV_Winery.SingleOrDefault(e => e.wineryManagerEmail == wineryManagerEmail);
+        }
+
+        
+
     }
 
    

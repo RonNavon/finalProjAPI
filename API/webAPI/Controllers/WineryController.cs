@@ -47,10 +47,16 @@ namespace webAPI.Controllers
             }
         }
 
+
+
+
+
         /// <summary>
-        /// https://localhost:44370/api/Winery
+        /// https://localhost:44370/api/Winery 
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
+        [Route("api/Winery")]
         public IHttpActionResult Get()
         {
             try
@@ -62,6 +68,29 @@ namespace webAPI.Controllers
                 return Content(HttpStatusCode.BadRequest, ex);
             }
         }
+
+        /// <summary>
+        /// https://localhost:44370/api/Winery/wineryManagerEmail?wineryManagerEmail=asaf@gmail.com
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/Winery/wineryManagerEmail")]
+        public IHttpActionResult Get(string wineryManagerEmail)
+        {
+            try
+            {
+                return Ok(WineryModel.GetWineryByUser(db, wineryManagerEmail));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+
+
+
+
 
         /// <summary>
         ///  https://localhost:44370/api/Winery/area?areaID=2

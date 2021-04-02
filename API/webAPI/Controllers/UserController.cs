@@ -80,5 +80,37 @@ namespace webAPI.Controllers
 
 
 
+
+        /// <summary>
+        /// https://localhost:44370/api/User/email?email=asaf@gmail.com
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        [HttpPut]
+        [Route("api/User/email")]
+        public IHttpActionResult Put(string email, [FromBody] RV_User value)
+        {
+            try
+            {
+                RV_User user = db.RV_User.SingleOrDefault(x => x.email == email);
+                if (user != null)
+                {
+                    user.email = value.email;
+                    user.password = value.password;
+                    user.Name = value.Name;
+                    user.phone = value.phone;
+                    user.picture = value.picture;
+                    db.SaveChanges();
+                    return Ok(user);
+                }
+                return Content(HttpStatusCode.NotFound,
+                    $"wine with email {email} was not found to update!");
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }
