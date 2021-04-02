@@ -304,5 +304,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RV_PrefrencesType">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_PrefrencesType">
+        <MappingFragment StoreEntitySet="RV_PrefrencesType">
+          <ScalarProperty Name="PrefrenceType" ColumnName="PrefrenceType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RV_UserPrefrences">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_UserPrefrences">
+        <MappingFragment StoreEntitySet="RV_UserPrefrences">
+          <ScalarProperty Name="registerAt" ColumnName="registerAt" />
+          <ScalarProperty Name="FreeText" ColumnName="FreeText" />
+          <ScalarProperty Name="PrefrenceID" ColumnName="PrefrenceID" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

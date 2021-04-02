@@ -105,6 +105,16 @@
       <End Role="RV_Service" EntitySet="RV_Service" />
       <End Role="RV_ServiceImage" EntitySet="RV_ServiceImage" />
     </AssociationSet>
+    <EntitySet Name="RV_PrefrencesType" EntityType="ArvinoModel.RV_PrefrencesType" />
+    <EntitySet Name="RV_UserPrefrences" EntityType="ArvinoModel.RV_UserPrefrences" />
+    <AssociationSet Name="FK_RV_UserPrefrences_RV_PrefrencesType" Association="ArvinoModel.FK_RV_UserPrefrences_RV_PrefrencesType">
+      <End Role="RV_PrefrencesType" EntitySet="RV_PrefrencesType" />
+      <End Role="RV_UserPrefrences" EntitySet="RV_UserPrefrences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_UserPrefrences_RV_User" Association="ArvinoModel.FK_RV_UserPrefrences_RV_User">
+      <End Role="RV_User" EntitySet="RV_User" />
+      <End Role="RV_UserPrefrences" EntitySet="RV_UserPrefrences" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="RV_Answers">
     <Key>
@@ -316,6 +326,7 @@
     <NavigationProperty Name="RV_GroupMessages1" Relationship="ArvinoModel.FK_RV_GroupMessages1_RV_User" FromRole="RV_User" ToRole="RV_GroupMessages1" />
     <NavigationProperty Name="RV_UserType" Relationship="ArvinoModel.FK_RV_User_RV_UserType" FromRole="RV_User" ToRole="RV_UserType" />
     <NavigationProperty Name="RV_Winery" Relationship="ArvinoModel.FK_RV_Winery_RV_User" FromRole="RV_User" ToRole="RV_Winery" />
+    <NavigationProperty Name="RV_UserPrefrences" Relationship="ArvinoModel.FK_RV_UserPrefrences_RV_User" FromRole="RV_User" ToRole="RV_UserPrefrences" />
   </EntityType>
   <EntityType Name="RV_UserJoinChatRoom">
     <Key>
@@ -651,6 +662,50 @@
       </Principal>
       <Dependent Role="RV_ServiceImage">
         <PropertyRef Name="serviceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="RV_PrefrencesType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrefrenceType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="RV_UserPrefrences" Relationship="ArvinoModel.FK_RV_UserPrefrences_RV_PrefrencesType" FromRole="RV_PrefrencesType" ToRole="RV_UserPrefrences" />
+  </EntityType>
+  <EntityType Name="RV_UserPrefrences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PrefrenceID" Type="Int32" Nullable="false" />
+    <Property Name="FreeText" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="registerAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="RV_PrefrencesType" Relationship="ArvinoModel.FK_RV_UserPrefrences_RV_PrefrencesType" FromRole="RV_UserPrefrences" ToRole="RV_PrefrencesType" />
+    <NavigationProperty Name="RV_User" Relationship="ArvinoModel.FK_RV_UserPrefrences_RV_User" FromRole="RV_UserPrefrences" ToRole="RV_User" />
+  </EntityType>
+  <Association Name="FK_RV_UserPrefrences_RV_PrefrencesType">
+    <End Type="ArvinoModel.RV_PrefrencesType" Role="RV_PrefrencesType" Multiplicity="1" />
+    <End Type="ArvinoModel.RV_UserPrefrences" Role="RV_UserPrefrences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_PrefrencesType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RV_UserPrefrences">
+        <PropertyRef Name="PrefrenceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RV_UserPrefrences_RV_User">
+    <End Type="ArvinoModel.RV_User" Role="RV_User" Multiplicity="1" />
+    <End Type="ArvinoModel.RV_UserPrefrences" Role="RV_UserPrefrences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_User">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="RV_UserPrefrences">
+        <PropertyRef Name="email" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

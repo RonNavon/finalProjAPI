@@ -130,6 +130,13 @@
     <Property Name="systemManagerEmail" Type="varchar" MaxLength="50" />
     <Property Name="targetEmail" Type="varchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="RV_PrefrencesType">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrefrenceType" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="RV_PurchasedEventsByUsers">
     <Key>
       <PropertyRef Name="purchaseId" />
@@ -213,6 +220,16 @@
     <Property Name="userEmail" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="groupId" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="RV_UserPrefrences">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PrefrenceID" Type="int" Nullable="false" />
+    <Property Name="FreeText" Type="nvarchar(max)" />
+    <Property Name="registerAt" Type="datetime" />
+  </EntityType>
   <EntityType Name="RV_UserScore">
     <Key>
       <PropertyRef Name="scoreId" />
@@ -227,14 +244,6 @@
     </Key>
     <Property Name="typeId" Type="int" Nullable="false" />
     <Property Name="typeName" Type="nvarchar" MaxLength="50" Nullable="false" />
-  </EntityType>
-  <EntityType Name="RV_UserWatches">
-    <Key>
-      <PropertyRef Name="email" />
-      <PropertyRef Name="watchTypeId" />
-    </Key>
-    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="watchTypeId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="RV_Wine">
     <Key>
@@ -494,6 +503,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_RV_UserPrefrences_RV_PrefrencesType">
+    <End Role="RV_PrefrencesType" Type="Self.RV_PrefrencesType" Multiplicity="1" />
+    <End Role="RV_UserPrefrences" Type="Self.RV_UserPrefrences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_PrefrencesType">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="RV_UserPrefrences">
+        <PropertyRef Name="PrefrenceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RV_UserPrefrences_RV_User">
+    <End Role="RV_User" Type="Self.RV_User" Multiplicity="1" />
+    <End Role="RV_UserPrefrences" Type="Self.RV_UserPrefrences" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_User">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="RV_UserPrefrences">
+        <PropertyRef Name="email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RV_Wine_RV_Winery">
     <End Role="RV_Winery" Type="Self.RV_Winery" Multiplicity="1" />
     <End Role="RV_Wine" Type="Self.RV_Wine" Multiplicity="*" />
@@ -532,6 +565,7 @@
     <EntitySet Name="RV_KeyWords" EntityType="Self.RV_KeyWords" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_MessageInGroup" EntityType="Self.RV_MessageInGroup" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_NoteFromSystemManager" EntityType="Self.RV_NoteFromSystemManager" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RV_PrefrencesType" EntityType="Self.RV_PrefrencesType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_PurchasedEventsByUsers" EntityType="Self.RV_PurchasedEventsByUsers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Question" EntityType="Self.RV_Question" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Rate" EntityType="Self.RV_Rate" Schema="dbo" store:Type="Tables" />
@@ -540,9 +574,9 @@
     <EntitySet Name="RV_User" EntityType="Self.RV_User" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_UserJoinChatRoom" EntityType="Self.RV_UserJoinChatRoom" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_UserJoinGroup" EntityType="Self.RV_UserJoinGroup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RV_UserPrefrences" EntityType="Self.RV_UserPrefrences" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_UserScore" EntityType="Self.RV_UserScore" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_UserType" EntityType="Self.RV_UserType" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="RV_UserWatches" EntityType="Self.RV_UserWatches" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Wine" EntityType="Self.RV_Wine" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_WineCategory" EntityType="Self.RV_WineCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Winery" EntityType="Self.RV_Winery" Schema="dbo" store:Type="Tables" />
@@ -615,6 +649,14 @@
     <AssociationSet Name="FK_RV_User_RV_UserType" Association="Self.FK_RV_User_RV_UserType">
       <End Role="RV_UserType" EntitySet="RV_UserType" />
       <End Role="RV_User" EntitySet="RV_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_UserPrefrences_RV_PrefrencesType" Association="Self.FK_RV_UserPrefrences_RV_PrefrencesType">
+      <End Role="RV_PrefrencesType" EntitySet="RV_PrefrencesType" />
+      <End Role="RV_UserPrefrences" EntitySet="RV_UserPrefrences" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_UserPrefrences_RV_User" Association="Self.FK_RV_UserPrefrences_RV_User">
+      <End Role="RV_User" EntitySet="RV_User" />
+      <End Role="RV_UserPrefrences" EntitySet="RV_UserPrefrences" />
     </AssociationSet>
     <AssociationSet Name="FK_RV_Wine_RV_Winery" Association="Self.FK_RV_Wine_RV_Winery">
       <End Role="RV_Winery" EntitySet="RV_Winery" />
