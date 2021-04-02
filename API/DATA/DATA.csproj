@@ -119,6 +119,9 @@
     <Compile Include="EF\RV_NoteFromSystemManager.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\RV_PrefrencesType.cs">
+      <DependentUpon>ArvinoModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="EF\RV_PurchasedEventsByUsers.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
@@ -141,6 +144,9 @@
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\RV_UserJoinGroup.cs">
+      <DependentUpon>ArvinoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\RV_UserPrefrences.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\RV_UserScore.cs">

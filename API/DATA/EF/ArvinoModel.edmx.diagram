@@ -52,7 +52,11 @@
         <AssociationConnector Association="ArvinoModel.FK_RV_Wine_RV_Winery" />
         <EntityTypeShape EntityType="ArvinoModel.RV_Service" Width="1.5" PointX="5.75" PointY="16" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF" />
-      </Diagram>
+        <EntityTypeShape EntityType="ArvinoModel.RV_PrefrencesType" Width="1.5" PointX="10" PointY="2.25" />
+        <EntityTypeShape EntityType="ArvinoModel.RV_UserPrefrences" Width="1.5" PointX="12.25" PointY="0.75" />
+        <AssociationConnector Association="ArvinoModel.FK_RV_UserPrefrences_RV_PrefrencesType" />
+        <AssociationConnector Association="ArvinoModel.FK_RV_UserPrefrences_RV_User" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>
