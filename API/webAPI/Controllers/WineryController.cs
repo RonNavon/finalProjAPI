@@ -47,10 +47,6 @@ namespace webAPI.Controllers
             }
         }
 
-
-
-
-
         /// <summary>
         /// https://localhost:44370/api/Winery 
         /// </summary>
@@ -86,11 +82,6 @@ namespace webAPI.Controllers
                 return Content(HttpStatusCode.BadRequest, ex);
             }
         }
-
-
-
-
-
 
         /// <summary>
         ///  https://localhost:44370/api/Winery/area?areaID=2
