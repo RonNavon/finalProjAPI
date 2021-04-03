@@ -17,6 +17,7 @@ namespace webAPI.Models
                 return db.RV_Rate
                     .Include(x => x.RV_Wine)
                         .Where(x => x.RV_Wine.wineryId == wineryId)
+                        .OrderByDescending(x => x.score)
                         .Select(w => new RateDTO()
                         {
                             rateId = w.rateId,
