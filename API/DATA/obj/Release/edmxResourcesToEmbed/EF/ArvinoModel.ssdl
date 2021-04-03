@@ -23,18 +23,6 @@
     <Property Name="chatRoomId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="title" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <EntityType Name="RV_Comment">
-    <Key>
-      <PropertyRef Name="commentId" />
-      <PropertyRef Name="wineId" />
-    </Key>
-    <Property Name="commentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="commentDate" Type="date" />
-    <Property Name="commentTime" Type="datetime" />
-    <Property Name="content" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="wineId" Type="int" Nullable="false" />
-    <Property Name="respondedUserEmail" Type="varchar" MaxLength="50" />
-  </EntityType>
   <EntityType Name="RV_Competition">
     <Key>
       <PropertyRef Name="competitionId" />
@@ -265,6 +253,16 @@
     <Property Name="categoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="categoryName" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="RV_WineComment">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="wineId" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="RV_Winery">
     <Key>
       <PropertyRef Name="wineryId" />
@@ -306,18 +304,6 @@
       </Principal>
       <Dependent Role="RV_Answers">
         <PropertyRef Name="questionId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__RV_Commen__wineI__531856C7">
-    <End Role="RV_Wine" Type="Self.RV_Wine" Multiplicity="1" />
-    <End Role="RV_Comment" Type="Self.RV_Comment" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="RV_Wine">
-        <PropertyRef Name="wineId" />
-      </Principal>
-      <Dependent Role="RV_Comment">
-        <PropertyRef Name="wineId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -455,6 +441,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK__RV_WineCo__email__2F650636">
+    <End Role="RV_User" Type="Self.RV_User" Multiplicity="1" />
+    <End Role="RV_WineComment" Type="Self.RV_WineComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_User">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="RV_WineComment">
+        <PropertyRef Name="email" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RV_WineCo__wineI__30592A6F">
+    <End Role="RV_Wine" Type="Self.RV_Wine" Multiplicity="1" />
+    <End Role="RV_WineComment" Type="Self.RV_WineComment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_Wine">
+        <PropertyRef Name="wineId" />
+      </Principal>
+      <Dependent Role="RV_WineComment">
+        <PropertyRef Name="wineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RV_GroupMessages_RV_Group">
     <End Role="RV_Group" Type="Self.RV_Group" Multiplicity="1" />
     <End Role="RV_GroupMessages" Type="Self.RV_GroupMessages" Multiplicity="*" />
@@ -555,7 +565,6 @@
     <EntitySet Name="RV_Answers" EntityType="Self.RV_Answers" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_AreaCategory" EntityType="Self.RV_AreaCategory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_ChatRoom" EntityType="Self.RV_ChatRoom" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="RV_Comment" EntityType="Self.RV_Comment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Competition" EntityType="Self.RV_Competition" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Event" EntityType="Self.RV_Event" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_EventCategory" EntityType="Self.RV_EventCategory" Schema="dbo" store:Type="Tables" />
@@ -579,16 +588,13 @@
     <EntitySet Name="RV_UserType" EntityType="Self.RV_UserType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Wine" EntityType="Self.RV_Wine" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_WineCategory" EntityType="Self.RV_WineCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RV_WineComment" EntityType="Self.RV_WineComment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_Winery" EntityType="Self.RV_Winery" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_WineryImage" EntityType="Self.RV_WineryImage" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RV_WineryManager" EntityType="Self.RV_WineryManager" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK__RV_Answer__quest__02C769E9" Association="Self.FK__RV_Answer__quest__02C769E9">
       <End Role="RV_Question" EntitySet="RV_Question" />
       <End Role="RV_Answers" EntitySet="RV_Answers" />
-    </AssociationSet>
-    <AssociationSet Name="FK__RV_Commen__wineI__531856C7" Association="Self.FK__RV_Commen__wineI__531856C7">
-      <End Role="RV_Wine" EntitySet="RV_Wine" />
-      <End Role="RV_Comment" EntitySet="RV_Comment" />
     </AssociationSet>
     <AssociationSet Name="FK__RV_Compet__wineI__3B40CD36" Association="Self.FK__RV_Compet__wineI__3B40CD36">
       <End Role="RV_Wine" EntitySet="RV_Wine" />
@@ -633,6 +639,14 @@
     <AssociationSet Name="FK__RV_Wine__categor__3587F3E0" Association="Self.FK__RV_Wine__categor__3587F3E0">
       <End Role="RV_WineCategory" EntitySet="RV_WineCategory" />
       <End Role="RV_Wine" EntitySet="RV_Wine" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_WineCo__email__2F650636" Association="Self.FK__RV_WineCo__email__2F650636">
+      <End Role="RV_User" EntitySet="RV_User" />
+      <End Role="RV_WineComment" EntitySet="RV_WineComment" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RV_WineCo__wineI__30592A6F" Association="Self.FK__RV_WineCo__wineI__30592A6F">
+      <End Role="RV_Wine" EntitySet="RV_Wine" />
+      <End Role="RV_WineComment" EntitySet="RV_WineComment" />
     </AssociationSet>
     <AssociationSet Name="FK_RV_GroupMessages_RV_Group" Association="Self.FK_RV_GroupMessages_RV_Group">
       <End Role="RV_Group" EntitySet="RV_Group" />

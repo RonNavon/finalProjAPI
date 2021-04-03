@@ -89,9 +89,6 @@
     <Compile Include="EF\RV_ChatRoom.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\RV_Comment.cs">
-      <DependentUpon>ArvinoModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\RV_Competition.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
@@ -159,6 +156,9 @@
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\RV_WineCategory.cs">
+      <DependentUpon>ArvinoModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\RV_WineComment.cs">
       <DependentUpon>ArvinoModel.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\RV_Winery.cs">

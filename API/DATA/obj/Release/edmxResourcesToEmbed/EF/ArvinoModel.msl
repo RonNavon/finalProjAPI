@@ -26,18 +26,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RV_Comment">
-      <EntityTypeMapping TypeName="ArvinoModel.RV_Comment">
-        <MappingFragment StoreEntitySet="RV_Comment">
-          <ScalarProperty Name="respondedUserEmail" ColumnName="respondedUserEmail" />
-          <ScalarProperty Name="wineId" ColumnName="wineId" />
-          <ScalarProperty Name="content" ColumnName="content" />
-          <ScalarProperty Name="commentTime" ColumnName="commentTime" />
-          <ScalarProperty Name="commentDate" ColumnName="commentDate" />
-          <ScalarProperty Name="commentId" ColumnName="commentId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RV_Competition">
       <EntityTypeMapping TypeName="ArvinoModel.RV_Competition">
         <MappingFragment StoreEntitySet="RV_Competition">
@@ -142,6 +130,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RV_PrefrencesType">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_PrefrencesType">
+        <MappingFragment StoreEntitySet="RV_PrefrencesType">
+          <ScalarProperty Name="PrefrenceType" ColumnName="PrefrenceType" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="RV_PurchasedEventsByUsers">
       <EntityTypeMapping TypeName="ArvinoModel.RV_PurchasedEventsByUsers">
         <MappingFragment StoreEntitySet="RV_PurchasedEventsByUsers">
@@ -176,6 +172,18 @@
           <ScalarProperty Name="rateTime" ColumnName="rateTime" />
           <ScalarProperty Name="rateDate" ColumnName="rateDate" />
           <ScalarProperty Name="rateId" ColumnName="rateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RV_Service">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_Service">
+        <MappingFragment StoreEntitySet="RV_Service">
+          <ScalarProperty Name="wineryId" ColumnName="wineryId" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="serviceCategory" ColumnName="serviceCategory" />
+          <ScalarProperty Name="serviceName" ColumnName="serviceName" />
+          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -218,6 +226,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RV_UserPrefrences">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_UserPrefrences">
+        <MappingFragment StoreEntitySet="RV_UserPrefrences">
+          <ScalarProperty Name="registerAt" ColumnName="registerAt" />
+          <ScalarProperty Name="FreeText" ColumnName="FreeText" />
+          <ScalarProperty Name="PrefrenceID" ColumnName="PrefrenceID" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="RV_UserScore">
       <EntityTypeMapping TypeName="ArvinoModel.RV_UserScore">
         <MappingFragment StoreEntitySet="RV_UserScore">
@@ -257,6 +276,21 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="RV_Winery">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_Winery">
+        <MappingFragment StoreEntitySet="RV_Winery">
+          <ScalarProperty Name="wineryManagerEmail" ColumnName="wineryManagerEmail" />
+          <ScalarProperty Name="areaId" ColumnName="areaId" />
+          <ScalarProperty Name="IconImgPath" ColumnName="IconImgPath" />
+          <ScalarProperty Name="statusType" ColumnName="statusType" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="wineryEmail" ColumnName="wineryEmail" />
+          <ScalarProperty Name="wineryAddress" ColumnName="wineryAddress" />
+          <ScalarProperty Name="wineryName" ColumnName="wineryName" />
+          <ScalarProperty Name="wineryId" ColumnName="wineryId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="RV_WineryImage">
       <EntityTypeMapping TypeName="ArvinoModel.RV_WineryImage">
         <MappingFragment StoreEntitySet="RV_WineryImage">
@@ -277,49 +311,14 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RV_Winery">
-      <EntityTypeMapping TypeName="ArvinoModel.RV_Winery">
-        <MappingFragment StoreEntitySet="RV_Winery">
-          <ScalarProperty Name="wineryManagerEmail" ColumnName="wineryManagerEmail" />
-          <ScalarProperty Name="areaId" ColumnName="areaId" />
-          <ScalarProperty Name="IconImgPath" ColumnName="IconImgPath" />
-          <ScalarProperty Name="statusType" ColumnName="statusType" />
-          <ScalarProperty Name="phone" ColumnName="phone" />
-          <ScalarProperty Name="wineryEmail" ColumnName="wineryEmail" />
-          <ScalarProperty Name="wineryAddress" ColumnName="wineryAddress" />
-          <ScalarProperty Name="wineryName" ColumnName="wineryName" />
-          <ScalarProperty Name="wineryId" ColumnName="wineryId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RV_Service">
-      <EntityTypeMapping TypeName="ArvinoModel.RV_Service">
-        <MappingFragment StoreEntitySet="RV_Service">
-          <ScalarProperty Name="wineryId" ColumnName="wineryId" />
-          <ScalarProperty Name="price" ColumnName="price" />
-          <ScalarProperty Name="content" ColumnName="content" />
-          <ScalarProperty Name="serviceCategory" ColumnName="serviceCategory" />
-          <ScalarProperty Name="serviceName" ColumnName="serviceName" />
-          <ScalarProperty Name="serviceId" ColumnName="serviceId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RV_PrefrencesType">
-      <EntityTypeMapping TypeName="ArvinoModel.RV_PrefrencesType">
-        <MappingFragment StoreEntitySet="RV_PrefrencesType">
-          <ScalarProperty Name="PrefrenceType" ColumnName="PrefrenceType" />
-          <ScalarProperty Name="ID" ColumnName="ID" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="RV_UserPrefrences">
-      <EntityTypeMapping TypeName="ArvinoModel.RV_UserPrefrences">
-        <MappingFragment StoreEntitySet="RV_UserPrefrences">
-          <ScalarProperty Name="registerAt" ColumnName="registerAt" />
-          <ScalarProperty Name="FreeText" ColumnName="FreeText" />
-          <ScalarProperty Name="PrefrenceID" ColumnName="PrefrenceID" />
+    <EntitySetMapping Name="RV_WineComment">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_WineComment">
+        <MappingFragment StoreEntitySet="RV_WineComment">
+          <ScalarProperty Name="wineId" ColumnName="wineId" />
           <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

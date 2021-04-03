@@ -12,7 +12,7 @@ using webAPI.DTO;
 namespace webAPI.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class CommentController : ApiController
+    public class WineCommentController : ApiController
     {
         public static ArvinoDbContext db = new ArvinoDbContext();
 
@@ -21,20 +21,18 @@ namespace webAPI.Controllers
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public IHttpActionResult Post([FromBody] RV_Comment value)
+        public IHttpActionResult Post([FromBody] RV_WineComment value)
         {
             try
             {
-                RV_Comment comment = new RV_Comment()
+                RV_WineComment comment = new RV_WineComment()
                 {
-                    commentDate = DateTime.Now,
-                    commentTime = DateTime.Now,
-                    content = value.content,
+                    text = value.text,
+                    email = value.email,
                     wineId = value.wineId,
-                    respondedUserEmail = value.respondedUserEmail,
-
+                    date = DateTime.Now
                 };
-                db.RV_Comment.Add(comment);
+                db.RV_WineComment.Add(comment);
                 db.SaveChanges();
                 return Ok();
             }
@@ -43,5 +41,6 @@ namespace webAPI.Controllers
                 return Content(HttpStatusCode.BadRequest, ex);
             }
         }
+
     }
 }

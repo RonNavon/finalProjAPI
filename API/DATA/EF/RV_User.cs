@@ -19,8 +19,9 @@ namespace DATA.EF
         {
             this.RV_GroupMessages = new HashSet<RV_GroupMessages>();
             this.RV_GroupMessages1 = new HashSet<RV_GroupMessages1>();
-            this.RV_Winery = new HashSet<RV_Winery>();
             this.RV_UserPrefrences = new HashSet<RV_UserPrefrences>();
+            this.RV_Winery = new HashSet<RV_Winery>();
+            this.RV_WineComment = new HashSet<RV_WineComment>();
         }
     
         public string email { get; set; }
@@ -38,8 +39,10 @@ namespace DATA.EF
         public virtual ICollection<RV_GroupMessages1> RV_GroupMessages1 { get; set; }
         public virtual RV_UserType RV_UserType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RV_UserPrefrences> RV_UserPrefrences { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_Winery> RV_Winery { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_UserPrefrences> RV_UserPrefrences { get; set; }
+        public virtual ICollection<RV_WineComment> RV_WineComment { get; set; }
     }
 }
