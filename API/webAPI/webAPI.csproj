@@ -191,6 +191,7 @@
     <Compile Include="DTO\ServiceDTO.cs" />
     <Compile Include="DTO\ServiceImageDTO.cs" />
     <Compile Include="DTO\WineCategoryDTO.cs" />
+    <Compile Include="DTO\WineCommentDTO.cs" />
     <Compile Include="DTO\WineDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
