@@ -47,11 +47,31 @@ namespace webAPI.Controllers
         /// https://localhost:44370/api/WineComment/2
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
+        [Route("api/WineComment/wineId")]
         public IHttpActionResult Get(int Id)
         {
             try
             {
                 return Ok(WineModel.GetAllWineComments(Id, db));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
+
+        /// <summary>
+        /// https://localhost:44370/api/WineComment/2
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/WineComment/wineryId")]
+        public IHttpActionResult GetWineryWinesComments(int Id)
+        {
+            try
+            {
+                return Ok(WineModel.GetAllWineryWineComments(Id, db));
             }
             catch (Exception ex)
             {
