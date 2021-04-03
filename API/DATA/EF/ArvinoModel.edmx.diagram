@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8be1673c2f954f3d8ddebaed9f78345e" Name="Diagram1" ZoomLevel="98">
+      <Diagram DiagramId="8be1673c2f954f3d8ddebaed9f78345e" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="ArvinoModel.RV_Answers" Width="1.5" PointX="18" PointY="13.25" />
         <EntityTypeShape EntityType="ArvinoModel.RV_AreaCategory" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="ArvinoModel.RV_ChatRoom" Width="1.5" PointX="11.75" PointY="4.875" />
@@ -20,7 +20,6 @@
         <EntityTypeShape EntityType="ArvinoModel.RV_PrefrencesType" Width="1.5" PointX="3" PointY="12.125" />
         <EntityTypeShape EntityType="ArvinoModel.RV_PurchasedEventsByUsers" Width="1.5" PointX="15.25" PointY="8.5" />
         <EntityTypeShape EntityType="ArvinoModel.RV_Question" Width="1.5" PointX="15.75" PointY="13" />
-        <EntityTypeShape EntityType="ArvinoModel.RV_Rate" Width="1.5" PointX="9.75" PointY="1.5" />
         <EntityTypeShape EntityType="ArvinoModel.RV_Service" Width="1.5" PointX="10.75" PointY="13" />
         <EntityTypeShape EntityType="ArvinoModel.RV_ServiceImage" Width="1.5" PointX="13" PointY="13.25" />
         <EntityTypeShape EntityType="ArvinoModel.RV_User" Width="1.5" PointX="3" PointY="7.125" />
@@ -47,7 +46,6 @@
         <AssociationConnector Association="ArvinoModel.FK_RV_GroupMessages1_RV_User" />
         <AssociationConnector Association="ArvinoModel.FK__RV_NoteFr__targe__08B54D69" />
         <AssociationConnector Association="ArvinoModel.FK_RV_UserPrefrences_RV_PrefrencesType" />
-        <AssociationConnector Association="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" />
         <AssociationConnector Association="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF" />
         <AssociationConnector Association="ArvinoModel.FK_RV_User_RV_UserType" />
         <AssociationConnector Association="ArvinoModel.FK_RV_UserPrefrences_RV_User" />
@@ -57,7 +55,10 @@
         <EntityTypeShape EntityType="ArvinoModel.RV_WineComment" Width="1.5" PointX="16.75" PointY="5" />
         <AssociationConnector Association="ArvinoModel.FK__RV_WineCo__email__2F650636" />
         <AssociationConnector Association="ArvinoModel.FK__RV_WineCo__wineI__30592A6F" />
-      </Diagram>
+        <EntityTypeShape EntityType="ArvinoModel.RV_Rate" Width="1.5" PointX="8.875" PointY="1" />
+        <AssociationConnector Association="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" />
+        <AssociationConnector Association="ArvinoModel.FK_RV_Rate_RV_User" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

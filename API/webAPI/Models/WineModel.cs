@@ -10,7 +10,6 @@ namespace webAPI.Models
 {
     public class WineModel
     {
-
         public static List<WineDTO> GetWineByCategory(int WineCategoryId, ArvinoDbContext db)
         {
             return db.RV_Wine.Where(i => i.categoryId == WineCategoryId)
@@ -122,5 +121,6 @@ namespace webAPI.Models
                 throw new Exception(ex.Message);
             }
         }
+
     }
 }

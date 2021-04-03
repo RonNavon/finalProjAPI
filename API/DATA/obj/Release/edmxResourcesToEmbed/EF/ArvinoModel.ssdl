@@ -154,11 +154,10 @@
       <PropertyRef Name="wineId" />
     </Key>
     <Property Name="rateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="rateDate" Type="date" />
-    <Property Name="rateTime" Type="datetime" />
+    <Property Name="rateDate" Type="datetime" Nullable="false" />
     <Property Name="wineId" Type="int" Nullable="false" />
     <Property Name="score" Type="int" Nullable="false" />
-    <Property Name="ratedByUserEmail" Type="varchar" MaxLength="50" />
+    <Property Name="ratedByUserEmail" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="RV_Service">
     <Key>
@@ -501,6 +500,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_RV_Rate_RV_User">
+    <End Role="RV_User" Type="Self.RV_User" Multiplicity="1" />
+    <End Role="RV_Rate" Type="Self.RV_Rate" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RV_User">
+        <PropertyRef Name="email" />
+      </Principal>
+      <Dependent Role="RV_Rate">
+        <PropertyRef Name="ratedByUserEmail" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_RV_User_RV_UserType">
     <End Role="RV_UserType" Type="Self.RV_UserType" Multiplicity="0..1" />
     <End Role="RV_User" Type="Self.RV_User" Multiplicity="*" />
@@ -659,6 +670,10 @@
     <AssociationSet Name="FK_RV_GroupMessages1_RV_User" Association="Self.FK_RV_GroupMessages1_RV_User">
       <End Role="RV_User" EntitySet="RV_User" />
       <End Role="RV_GroupMessages1" EntitySet="RV_GroupMessages1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RV_Rate_RV_User" Association="Self.FK_RV_Rate_RV_User">
+      <End Role="RV_User" EntitySet="RV_User" />
+      <End Role="RV_Rate" EntitySet="RV_Rate" />
     </AssociationSet>
     <AssociationSet Name="FK_RV_User_RV_UserType" Association="Self.FK_RV_User_RV_UserType">
       <End Role="RV_UserType" EntitySet="RV_UserType" />

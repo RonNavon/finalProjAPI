@@ -163,18 +163,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="RV_Rate">
-      <EntityTypeMapping TypeName="ArvinoModel.RV_Rate">
-        <MappingFragment StoreEntitySet="RV_Rate">
-          <ScalarProperty Name="ratedByUserEmail" ColumnName="ratedByUserEmail" />
-          <ScalarProperty Name="score" ColumnName="score" />
-          <ScalarProperty Name="wineId" ColumnName="wineId" />
-          <ScalarProperty Name="rateTime" ColumnName="rateTime" />
-          <ScalarProperty Name="rateDate" ColumnName="rateDate" />
-          <ScalarProperty Name="rateId" ColumnName="rateId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="RV_Service">
       <EntityTypeMapping TypeName="ArvinoModel.RV_Service">
         <MappingFragment StoreEntitySet="RV_Service">
@@ -319,6 +307,17 @@
           <ScalarProperty Name="date" ColumnName="date" />
           <ScalarProperty Name="text" ColumnName="text" />
           <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RV_Rate">
+      <EntityTypeMapping TypeName="ArvinoModel.RV_Rate">
+        <MappingFragment StoreEntitySet="RV_Rate">
+          <ScalarProperty Name="ratedByUserEmail" ColumnName="ratedByUserEmail" />
+          <ScalarProperty Name="score" ColumnName="score" />
+          <ScalarProperty Name="wineId" ColumnName="wineId" />
+          <ScalarProperty Name="rateDate" ColumnName="rateDate" />
+          <ScalarProperty Name="rateId" ColumnName="rateId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -22,6 +22,7 @@ namespace DATA.EF
             this.RV_UserPrefrences = new HashSet<RV_UserPrefrences>();
             this.RV_Winery = new HashSet<RV_Winery>();
             this.RV_WineComment = new HashSet<RV_WineComment>();
+            this.RV_Rate = new HashSet<RV_Rate>();
         }
     
         public string email { get; set; }
@@ -44,5 +45,7 @@ namespace DATA.EF
         public virtual ICollection<RV_Winery> RV_Winery { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_WineComment> RV_WineComment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RV_Rate> RV_Rate { get; set; }
     }
 }

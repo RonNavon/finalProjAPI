@@ -159,11 +159,10 @@
             <PropertyRef Name="wineId" />
           </Key>
           <Property Name="rateId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="rateDate" Type="date" />
-          <Property Name="rateTime" Type="datetime" />
+          <Property Name="rateDate" Type="datetime" Nullable="false" />
           <Property Name="wineId" Type="int" Nullable="false" />
           <Property Name="score" Type="int" Nullable="false" />
-          <Property Name="ratedByUserEmail" Type="varchar" MaxLength="50" />
+          <Property Name="ratedByUserEmail" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="RV_Service">
           <Key>
@@ -506,6 +505,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_RV_Rate_RV_User">
+          <End Role="RV_User" Type="Self.RV_User" Multiplicity="1" />
+          <End Role="RV_Rate" Type="Self.RV_Rate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RV_User">
+              <PropertyRef Name="email" />
+            </Principal>
+            <Dependent Role="RV_Rate">
+              <PropertyRef Name="ratedByUserEmail" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_RV_User_RV_UserType">
           <End Role="RV_UserType" Type="Self.RV_UserType" Multiplicity="0..1" />
           <End Role="RV_User" Type="Self.RV_User" Multiplicity="*" />
@@ -665,6 +676,10 @@
             <End Role="RV_User" EntitySet="RV_User" />
             <End Role="RV_GroupMessages1" EntitySet="RV_GroupMessages1" />
           </AssociationSet>
+          <AssociationSet Name="FK_RV_Rate_RV_User" Association="Self.FK_RV_Rate_RV_User">
+            <End Role="RV_User" EntitySet="RV_User" />
+            <End Role="RV_Rate" EntitySet="RV_Rate" />
+          </AssociationSet>
           <AssociationSet Name="FK_RV_User_RV_UserType" Association="Self.FK_RV_User_RV_UserType">
             <End Role="RV_UserType" EntitySet="RV_UserType" />
             <End Role="RV_User" EntitySet="RV_User" />
@@ -706,7 +721,6 @@
           <EntitySet Name="RV_PrefrencesType" EntityType="ArvinoModel.RV_PrefrencesType" />
           <EntitySet Name="RV_PurchasedEventsByUsers" EntityType="ArvinoModel.RV_PurchasedEventsByUsers" />
           <EntitySet Name="RV_Question" EntityType="ArvinoModel.RV_Question" />
-          <EntitySet Name="RV_Rate" EntityType="ArvinoModel.RV_Rate" />
           <EntitySet Name="RV_Service" EntityType="ArvinoModel.RV_Service" />
           <EntitySet Name="RV_ServiceImage" EntityType="ArvinoModel.RV_ServiceImage" />
           <EntitySet Name="RV_User" EntityType="ArvinoModel.RV_User" />
@@ -772,10 +786,6 @@
             <End Role="RV_PrefrencesType" EntitySet="RV_PrefrencesType" />
             <End Role="RV_UserPrefrences" EntitySet="RV_UserPrefrences" />
           </AssociationSet>
-          <AssociationSet Name="FK__RV_Rate__wineId__4C6B5938" Association="ArvinoModel.FK__RV_Rate__wineId__4C6B5938">
-            <End Role="RV_Wine" EntitySet="RV_Wine" />
-            <End Role="RV_Rate" EntitySet="RV_Rate" />
-          </AssociationSet>
           <AssociationSet Name="FK__RV_Servic__servi__2CF2ADDF" Association="ArvinoModel.FK__RV_Servic__servi__2CF2ADDF">
             <End Role="RV_Service" EntitySet="RV_Service" />
             <End Role="RV_ServiceImage" EntitySet="RV_ServiceImage" />
@@ -809,7 +819,16 @@
             <End Role="RV_Wine" EntitySet="RV_Wine" />
             <End Role="RV_WineComment" EntitySet="RV_WineComment" />
           </AssociationSet>
-        </EntityContainer>
+          <EntitySet Name="RV_Rate" EntityType="ArvinoModel.RV_Rate" />
+          <AssociationSet Name="FK__RV_Rate__wineId__4C6B5938" Association="ArvinoModel.FK__RV_Rate__wineId__4C6B5938">
+            <End Role="RV_Wine" EntitySet="RV_Wine" />
+            <End Role="RV_Rate" EntitySet="RV_Rate" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RV_Rate_RV_User" Association="ArvinoModel.FK_RV_Rate_RV_User">
+            <End Role="RV_User" EntitySet="RV_User" />
+            <End Role="RV_Rate" EntitySet="RV_Rate" />
+          </AssociationSet>
+          </EntityContainer>
         <EntityType Name="RV_Answers">
           <Key>
             <PropertyRef Name="email" />
@@ -977,19 +996,6 @@
           <Property Name="ans4" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="RV_Answers" Relationship="ArvinoModel.FK__RV_Answer__quest__02C769E9" FromRole="RV_Question" ToRole="RV_Answers" />
         </EntityType>
-        <EntityType Name="RV_Rate">
-          <Key>
-            <PropertyRef Name="rateId" />
-            <PropertyRef Name="wineId" />
-          </Key>
-          <Property Name="rateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="rateDate" Type="DateTime" Precision="0" />
-          <Property Name="rateTime" Type="DateTime" Precision="3" />
-          <Property Name="wineId" Type="Int32" Nullable="false" />
-          <Property Name="score" Type="Int32" Nullable="false" />
-          <Property Name="ratedByUserEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="RV_Wine" Relationship="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" FromRole="RV_Rate" ToRole="RV_Wine" />
-        </EntityType>
         <EntityType Name="RV_Service">
           <Key>
             <PropertyRef Name="serviceId" />
@@ -1029,6 +1035,7 @@
           <NavigationProperty Name="RV_UserPrefrences" Relationship="ArvinoModel.FK_RV_UserPrefrences_RV_User" FromRole="RV_User" ToRole="RV_UserPrefrences" />
           <NavigationProperty Name="RV_Winery" Relationship="ArvinoModel.FK_RV_Winery_RV_User" FromRole="RV_User" ToRole="RV_Winery" />
           <NavigationProperty Name="RV_WineComment" Relationship="ArvinoModel.FK__RV_WineCo__email__2F650636" FromRole="RV_User" ToRole="RV_WineComment" />
+          <NavigationProperty Name="RV_Rate" Relationship="ArvinoModel.FK_RV_Rate_RV_User" FromRole="RV_User" ToRole="RV_Rate" />
         </EntityType>
         <EntityType Name="RV_UserJoinChatRoom">
           <Key>
@@ -1089,10 +1096,10 @@
           <Property Name="categoryId" Type="Int32" />
           <Property Name="wineryId" Type="Int32" Nullable="false" />
           <NavigationProperty Name="RV_Competition" Relationship="ArvinoModel.FK__RV_Compet__wineI__3B40CD36" FromRole="RV_Wine" ToRole="RV_Competition" />
-          <NavigationProperty Name="RV_Rate" Relationship="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" FromRole="RV_Wine" ToRole="RV_Rate" />
           <NavigationProperty Name="RV_WineCategory" Relationship="ArvinoModel.FK__RV_Wine__categor__3587F3E0" FromRole="RV_Wine" ToRole="RV_WineCategory" />
           <NavigationProperty Name="RV_Winery" Relationship="ArvinoModel.FK_RV_Wine_RV_Winery" FromRole="RV_Wine" ToRole="RV_Winery" />
           <NavigationProperty Name="RV_WineComment" Relationship="ArvinoModel.FK__RV_WineCo__wineI__30592A6F" FromRole="RV_Wine" ToRole="RV_WineComment" />
+          <NavigationProperty Name="RV_Rate" Relationship="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" FromRole="RV_Wine" ToRole="RV_Rate" />
         </EntityType>
         <EntityType Name="RV_WineCategory">
           <Key>
@@ -1293,18 +1300,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__RV_Rate__wineId__4C6B5938">
-          <End Type="ArvinoModel.RV_Wine" Role="RV_Wine" Multiplicity="1" />
-          <End Type="ArvinoModel.RV_Rate" Role="RV_Rate" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="RV_Wine">
-              <PropertyRef Name="wineId" />
-            </Principal>
-            <Dependent Role="RV_Rate">
-              <PropertyRef Name="wineId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__RV_Servic__servi__2CF2ADDF">
           <End Type="ArvinoModel.RV_Service" Role="RV_Service" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
@@ -1412,6 +1407,43 @@
             </Principal>
             <Dependent Role="RV_WineComment">
               <PropertyRef Name="wineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="RV_Rate">
+          <Key>
+            <PropertyRef Name="rateId" />
+            <PropertyRef Name="wineId" />
+          </Key>
+          <Property Name="rateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="rateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="wineId" Type="Int32" Nullable="false" />
+          <Property Name="score" Type="Int32" Nullable="false" />
+          <Property Name="ratedByUserEmail" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RV_Wine" Relationship="ArvinoModel.FK__RV_Rate__wineId__4C6B5938" FromRole="RV_Rate" ToRole="RV_Wine" />
+          <NavigationProperty Name="RV_User" Relationship="ArvinoModel.FK_RV_Rate_RV_User" FromRole="RV_Rate" ToRole="RV_User" />
+        </EntityType>
+        <Association Name="FK__RV_Rate__wineId__4C6B5938">
+          <End Type="ArvinoModel.RV_Wine" Role="RV_Wine" Multiplicity="1" />
+          <End Type="ArvinoModel.RV_Rate" Role="RV_Rate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RV_Wine">
+              <PropertyRef Name="wineId" />
+            </Principal>
+            <Dependent Role="RV_Rate">
+              <PropertyRef Name="wineId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RV_Rate_RV_User">
+          <End Type="ArvinoModel.RV_User" Role="RV_User" Multiplicity="1" />
+          <End Type="ArvinoModel.RV_Rate" Role="RV_Rate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RV_User">
+              <PropertyRef Name="email" />
+            </Principal>
+            <Dependent Role="RV_Rate">
+              <PropertyRef Name="ratedByUserEmail" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1583,18 +1615,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="RV_Rate">
-            <EntityTypeMapping TypeName="ArvinoModel.RV_Rate">
-              <MappingFragment StoreEntitySet="RV_Rate">
-                <ScalarProperty Name="ratedByUserEmail" ColumnName="ratedByUserEmail" />
-                <ScalarProperty Name="score" ColumnName="score" />
-                <ScalarProperty Name="wineId" ColumnName="wineId" />
-                <ScalarProperty Name="rateTime" ColumnName="rateTime" />
-                <ScalarProperty Name="rateDate" ColumnName="rateDate" />
-                <ScalarProperty Name="rateId" ColumnName="rateId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="RV_Service">
             <EntityTypeMapping TypeName="ArvinoModel.RV_Service">
               <MappingFragment StoreEntitySet="RV_Service">
@@ -1739,6 +1759,17 @@
                 <ScalarProperty Name="date" ColumnName="date" />
                 <ScalarProperty Name="text" ColumnName="text" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RV_Rate">
+            <EntityTypeMapping TypeName="ArvinoModel.RV_Rate">
+              <MappingFragment StoreEntitySet="RV_Rate">
+                <ScalarProperty Name="ratedByUserEmail" ColumnName="ratedByUserEmail" />
+                <ScalarProperty Name="score" ColumnName="score" />
+                <ScalarProperty Name="wineId" ColumnName="wineId" />
+                <ScalarProperty Name="rateDate" ColumnName="rateDate" />
+                <ScalarProperty Name="rateId" ColumnName="rateId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

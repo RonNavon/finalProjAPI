@@ -18,8 +18,8 @@ namespace DATA.EF
         public RV_Wine()
         {
             this.RV_Competition = new HashSet<RV_Competition>();
-            this.RV_Rate = new HashSet<RV_Rate>();
             this.RV_WineComment = new HashSet<RV_WineComment>();
+            this.RV_Rate = new HashSet<RV_Rate>();
         }
     
         public int wineId { get; set; }
@@ -33,11 +33,11 @@ namespace DATA.EF
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_Competition> RV_Competition { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RV_Rate> RV_Rate { get; set; }
         public virtual RV_WineCategory RV_WineCategory { get; set; }
         public virtual RV_Winery RV_Winery { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<RV_WineComment> RV_WineComment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RV_Rate> RV_Rate { get; set; }
     }
 }

@@ -15,12 +15,12 @@ namespace DATA.EF
     public partial class RV_Rate
     {
         public int rateId { get; set; }
-        public Nullable<System.DateTime> rateDate { get; set; }
-        public Nullable<System.DateTime> rateTime { get; set; }
+        public System.DateTime rateDate { get; set; }
         public int wineId { get; set; }
         public int score { get; set; }
         public string ratedByUserEmail { get; set; }
     
         public virtual RV_Wine RV_Wine { get; set; }
+        public virtual RV_User RV_User { get; set; }
     }
 }
