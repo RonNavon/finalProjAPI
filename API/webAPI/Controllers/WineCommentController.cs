@@ -42,5 +42,21 @@ namespace webAPI.Controllers
             }
         }
 
+
+        /// <summary>
+        /// https://localhost:44370/api/WineComment/2
+        /// </summary>
+        /// <returns></returns>
+        public IHttpActionResult Get(int Id)
+        {
+            try
+            {
+                return Ok(WineModel.GetAllWineComments(Id, db));
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.BadRequest, ex);
+            }
+        }
     }
 }

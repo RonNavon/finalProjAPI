@@ -18,6 +18,7 @@ namespace webAPI.DTO
         public int wineryId;
         public string wineryName;
         public string wineryImage;
+        public string areaCategoryName;
 
     }
 }

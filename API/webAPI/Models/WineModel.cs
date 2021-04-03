@@ -11,9 +11,27 @@ namespace webAPI.Models
     public class WineModel
     {
 
-        public static List<RV_Wine> GetWineByCategory(int WineCategoryId, ArvinoDbContext db)
+        public static List<WineDTO> GetWineByCategory(int WineCategoryId, ArvinoDbContext db)
         {
-            return db.RV_Wine.Where(i => i.categoryId == WineCategoryId).ToList();
+            return db.RV_Wine.Where(i => i.categoryId == WineCategoryId)
+                    .Select(w => new WineDTO()
+                    {
+                        wineId = w.wineId,
+                        wineName = w.wineName,
+                        wineImgPath = w.wineImgPath,
+                        content = w.content,
+                        price = w.price,
+                        wineLabelPath = w.wineLabelPath,
+                        categoryId = w.categoryId ?? 0,
+                        wineryId = w.wineryId,
+                        wineryName = db.RV_Winery.FirstOrDefault(i => i.wineryId == w.wineryId).wineryName,
+                        wineryImage = db.RV_Winery.FirstOrDefault(i => i.wineryId == w.wineryId).IconImgPath,
+                        areaCategoryName = db.RV_AreaCategory
+                        .FirstOrDefault(i => i.areaId == db.RV_Winery
+                            .FirstOrDefault(r => r.wineryId == w.wineryId).areaId)
+                                .areaName,
+
+                    }).ToList();
         }
 
         public static List<WineDTO> GetAllWines(ArvinoDbContext db)
@@ -28,8 +46,12 @@ namespace webAPI.Models
                 wineLabelPath = w.wineLabelPath,
                 categoryId = w.categoryId ?? 0,
                 wineryId = w.wineryId,
-                wineryName=db.RV_Winery.FirstOrDefault(i=>i.wineryId == w.wineryId).wineryName,
-                wineryImage=db.RV_Winery.FirstOrDefault(i=>i.wineryId== w.wineryId).IconImgPath
+                wineryName = db.RV_Winery.FirstOrDefault(i => i.wineryId == w.wineryId).wineryName,
+                wineryImage = db.RV_Winery.FirstOrDefault(i => i.wineryId == w.wineryId).IconImgPath,
+                areaCategoryName = db.RV_AreaCategory
+                        .FirstOrDefault(i => i.areaId == db.RV_Winery
+                            .FirstOrDefault(r => r.wineryId == w.wineryId).areaId)
+                                .areaName,
 
             }).ToList();
         }
@@ -47,7 +69,36 @@ namespace webAPI.Models
                 categoryId = w.categoryId ?? 0,
                 wineryId = w.wineryId
 
+
             }).ToList();
+        }
+
+
+        public static List<WineCommentDTO> GetAllWineComments(int wineId, ArvinoDbContext db)
+        {
+            try
+            {
+
+                return db.RV_WineComment
+                    .Where(i => i.wineId == wineId)
+                        .Select(w => new WineCommentDTO()
+                        {
+                            id=w.id,
+                            email = w.email,
+                            text=w.text,
+                            date=w.date,
+                            wineId=w.wineId,
+                            userName = db.RV_User.FirstOrDefault(e=>e.email == w.email).Name,
+                            UserPitcure = db.RV_User.FirstOrDefault(e => e.email == w.email).picture
+
+                        }).ToList();
+
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }
