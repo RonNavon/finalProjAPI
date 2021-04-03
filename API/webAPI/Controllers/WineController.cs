@@ -47,7 +47,7 @@ namespace webAPI.Controllers
             }
             catch (Exception ex)
             {
-                return Content(HttpStatusCode.BadRequest, ex);
+                return Content(HttpStatusCode.BadRequest, ex.InnerException);
             }
         }
 
