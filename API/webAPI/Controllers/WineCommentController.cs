@@ -44,7 +44,7 @@ namespace webAPI.Controllers
 
 
         /// <summary>
-        /// https://localhost:44370/api/WineComment/2
+        /// https://localhost:44370/api/WineComment/wineId?Id=1
         /// </summary>
         /// <returns></returns>
         [HttpGet]
@@ -62,7 +62,7 @@ namespace webAPI.Controllers
         }
 
         /// <summary>
-        /// https://localhost:44370/api/WineComment/2
+        /// https://localhost:44370/api/WineComment/wineryId?Id=1
         /// </summary>
         /// <returns></returns>
         [HttpGet]

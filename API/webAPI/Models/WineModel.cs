@@ -73,7 +73,6 @@ namespace webAPI.Models
             }).ToList();
         }
 
-
         public static List<WineCommentDTO> GetAllWineComments(int wineId, ArvinoDbContext db)
         {
             try
@@ -83,17 +82,40 @@ namespace webAPI.Models
                     .Where(i => i.wineId == wineId)
                         .Select(w => new WineCommentDTO()
                         {
-                            id=w.id,
+                            id = w.id,
                             email = w.email,
-                            text=w.text,
-                            date=w.date,
-                            wineId=w.wineId,
-                            userName = db.RV_User.FirstOrDefault(e=>e.email == w.email).Name,
+                            text = w.text,
+                            date = w.date,
+                            wineId = w.wineId,
+                            userName = db.RV_User.FirstOrDefault(e => e.email == w.email).Name,
                             UserPitcure = db.RV_User.FirstOrDefault(e => e.email == w.email).picture
 
                         }).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
 
+        public static List<WineCommentDTO> GetAllWineryWineComments(int wineryId, ArvinoDbContext db)
+        {
+            try
+            {
+                return db.RV_WineComment
+                    .Include(x => x.RV_Wine)
+                        .Where(x => x.RV_Wine.wineryId == wineryId)
+                        .Select(w => new WineCommentDTO()
+                        {
+                            id = w.id,
+                            email = w.email,
+                            text = w.text,
+                            date = w.date,
+                            wineId = w.wineId,
+                            userName = db.RV_User.FirstOrDefault(e => e.email == w.email).Name,
+                            UserPitcure = db.RV_User.FirstOrDefault(e => e.email == w.email).picture
 
+                        }).ToList();
             }
             catch (Exception ex)
             {
