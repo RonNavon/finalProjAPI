@@ -17,7 +17,7 @@ namespace webAPI.Controllers
         public static ArvinoDbContext db = new ArvinoDbContext();
 
         /// <summary>
-        /// https://localhost:44370/api/Comment
+        /// https://localhost:44370/api/WineComment
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
