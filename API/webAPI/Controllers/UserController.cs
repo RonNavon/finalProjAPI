@@ -78,9 +78,6 @@ namespace webAPI.Controllers
             }
         }
 
-
-
-
         /// <summary>
         /// https://localhost:44370/api/User/email?email=asaf@gmail.com
         /// </summary>

@@ -53,7 +53,7 @@ namespace webAPI.Controllers
         /// <param name="id"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public IHttpActionResult Put(int id, [FromBody] EventDTO value)
+        public IHttpActionResult Put(int id, [FromBody] RV_Event value)
         {
             try
             {
